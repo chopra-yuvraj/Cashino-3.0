@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Liar Dice — CASHINO 3.0</title>
+    <meta name="description" content="Liar Dice: Bluff, bet, and challenge your opponents in this strategic dice game!">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="icon" href="../cashino-3-0.jpg" type="image/jpeg">
+</head>
+
+<body>
+    <canvas id="particle-canvas"></canvas>
+    <nav class="navbar">
+        <div class="container nav-inner">
+            <a href="../index.html" class="nav-brand"><img src="../Dream Merchants Logo.jpeg"
+                    alt="Dream Merchants"><span>CASHINO 3.0</span></a>
+            <div class="nav-links"><a href="../index.html#about">About</a><a href="../index.html#rules">Rules</a><a
+                    href="../index.html#games">Games</a></div>
+            <div class="hamburger"><span></span><span></span><span></span></div>
+        </div>
+    </nav>
+
+    <div class="game-page">
+        <div class="container">
+            <div class="back-nav"><a href="../index.html#games" class="back-link">← Back to All Games</a></div>
+
+            <div class="game-header fade-in">
+                <span class="game-header-icon">🎲</span>
+                <h1>Liar Dice</h1>
+                <div class="game-header-line"></div>
+            </div>
+
+            <div class="quick-stats fade-in">
+                <span class="stat-badge price"><span class="stat-icon">🪙</span> 6 Tokens (initial) · Raises in
+                    multiples of 6</span>
+                <span class="stat-badge manager"><span class="stat-icon">👤</span> Manager: Vasu</span>
+            </div>
+
+            <div class="game-content">
+                <div class="game-section fade-in">
+                    <h2 class="game-section-title"><span class="emoji">📖</span> How to Play</h2>
+                    <ul class="rules-list">
+                        <li><strong>2–3 players</strong> per game.</li>
+                        <li>There are the <strong>same number of rounds</strong> as the number of players.</li>
+                        <li>There can be a <strong>max of 5 raises/challenges</strong> in a single round.</li>
+                        <li>At the start of a round, a player states a <strong>condition</strong> relating to the count
+                            of a number on the dice and bets tokens.</li>
+                        <li>The next player in order must <strong>challenge the bet</strong> or <strong>raise the
+                                bet</strong>.</li>
+                        <li>If a player raises, the next player must then challenge or raise — this cycle continues
+                            until someone challenges or max raises are reached.</li>
+                        <li>After a challenge, the dice are revealed and the condition is <strong>verified</strong>.
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="game-section fade-in">
+                    <h2 class="game-section-title"><span class="emoji">💰</span> Winning / Losing Criteria</h2>
+                    <div class="outcomes-card">
+                        <table class="outcomes-table">
+                            <thead>
+                                <tr>
+                                    <th>Outcome</th>
+                                    <th>Result</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><strong>Condition is TRUE</strong></td>
+                                    <td><span class="multiplier win">Person who stated the condition wins the pot</span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Condition is FALSE</strong></td>
+                                    <td><span class="multiplier win">Person who challenged wins the pot</span></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="note-box">
+                        <strong>📝 Key Terms:</strong><br>
+                        <strong>Raise:</strong> The player states a new condition (overrides previous) and bets
+                        token-5.<br>
+                        <strong>Challenge:</strong> The player ends the round, betting that the stated condition is NOT
+                        true. The remaining player's opinion is not considered. Dice are revealed after a challenge or
+                        max raise limit.
+                    </div>
+                </div>
+            </div>
+
+            <div class="back-cta fade-in"><a href="../index.html#games" class="cta-btn">🎮 Back to All Games</a></div>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-brand"><img src="../Dream Merchants Logo.jpeg" alt="Dream Merchants"><span>Dream
+                    Merchants</span></div>
+            <p class="footer-text">CASHINO 3.0 — The Ultimate Token Tournament © 2026</p>
+        </div>
+    </footer>
+    <script src="../js/main.js"></script>
+</body>
+
+</html>

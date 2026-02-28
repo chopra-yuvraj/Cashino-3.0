@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>7 Up & Down — CASHINO 3.0</title>
+    <meta name="description"
+        content="7 Up & Down: Bet on whether the dice total will be above 7, below 7, or exactly lucky 7!">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="icon" href="../cashino-3-0.jpg" type="image/jpeg">
+</head>
+
+<body>
+    <canvas id="particle-canvas"></canvas>
+    <nav class="navbar">
+        <div class="container nav-inner">
+            <a href="../index.html" class="nav-brand"><img src="../Dream Merchants Logo.jpeg"
+                    alt="Dream Merchants"><span>CASHINO 3.0</span></a>
+            <div class="nav-links"><a href="../index.html#about">About</a><a href="../index.html#rules">Rules</a><a
+                    href="../index.html#games">Games</a></div>
+            <div class="hamburger"><span></span><span></span><span></span></div>
+        </div>
+    </nav>
+
+    <div class="game-page">
+        <div class="container">
+            <div class="back-nav"><a href="../index.html#games" class="back-link">← Back to All Games</a></div>
+
+            <div class="game-header fade-in">
+                <span class="game-header-icon">🎯</span>
+                <h1>7 Up & Down</h1>
+                <div class="game-header-line"></div>
+            </div>
+
+            <div class="quick-stats fade-in">
+                <span class="stat-badge price"><span class="stat-icon">🪙</span> Min 1 — Max 60 Tokens per round</span>
+                <span class="stat-badge manager"><span class="stat-icon">👤</span> Manager: Abhijay</span>
+            </div>
+
+            <div class="game-content">
+                <div class="game-section fade-in">
+                    <h2 class="game-section-title"><span class="emoji">📖</span> How to Play</h2>
+                    <ul class="rules-list">
+                        <li>Player places tokens on <strong>ONE</strong> of three sections: <strong>7 Down</strong>,
+                            <strong>Lucky 7</strong>, or <strong>7 Up</strong>.</li>
+                        <li>Once betting is closed, the volunteer rolls both dice in <strong>clear view</strong>.</li>
+                        <li>The total is announced and tokens are distributed based on the result.</li>
+                        <li>Dice must be shown before the first round.</li>
+                        <li>Rolls must be <strong>visible to all players</strong>.</li>
+                        <li><strong>No physical interference</strong> allowed.</li>
+                        <li>Any dispute will be resolved by the <strong>event coordinator</strong>.</li>
+                    </ul>
+                </div>
+
+                <div class="game-section fade-in">
+                    <h2 class="game-section-title"><span class="emoji">💰</span> Winning Multipliers</h2>
+                    <div class="outcomes-card">
+                        <table class="outcomes-table">
+                            <thead>
+                                <tr>
+                                    <th>Bet Section</th>
+                                    <th>Condition</th>
+                                    <th>Multiplier</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>⬇️ 7 Down</td>
+                                    <td>Dice total is <strong>below 7</strong></td>
+                                    <td><span class="multiplier win">1.5x</span></td>
+                                </tr>
+                                <tr>
+                                    <td>⭐ Lucky 7</td>
+                                    <td>Dice total is <strong>exactly 7</strong></td>
+                                    <td><span class="multiplier win">3x</span></td>
+                                </tr>
+                                <tr>
+                                    <td>⬆️ 7 Up</td>
+                                    <td>Dice total is <strong>above 7</strong></td>
+                                    <td><span class="multiplier win">1.5x</span></td>
+                                </tr>
+                                <tr>
+                                    <td>❌ Wrong Bet</td>
+                                    <td>Your section didn't match</td>
+                                    <td><span class="multiplier lose">0x — Lose Bet</span></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="note-box">
+                        <strong>💡 Tip:</strong> Lucky 7 pays 3x but is the hardest to hit. 7 Up and 7 Down are safer
+                        bets at 1.5x!
+                    </div>
+                </div>
+            </div>
+
+            <div class="back-cta fade-in"><a href="../index.html#games" class="cta-btn">🎮 Back to All Games</a></div>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-brand"><img src="../Dream Merchants Logo.jpeg" alt="Dream Merchants"><span>Dream
+                    Merchants</span></div>
+            <p class="footer-text">CASHINO 3.0 — The Ultimate Token Tournament © 2026</p>
+        </div>
+    </footer>
+    <script src="../js/main.js"></script>
+</body>
+
+</html>

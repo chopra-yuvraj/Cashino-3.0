@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Colour Wheel of Fortune — CASHINO 3.0</title>
+    <meta name="description" content="Spin the colour wheel and land on the right colour to win up to 2x your tokens!">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="icon" href="../cashino-3-0.jpg" type="image/jpeg">
+</head>
+
+<body>
+    <canvas id="particle-canvas"></canvas>
+    <nav class="navbar">
+        <div class="container nav-inner">
+            <a href="../index.html" class="nav-brand"><img src="../Dream Merchants Logo.jpeg"
+                    alt="Dream Merchants"><span>CASHINO 3.0</span></a>
+            <div class="nav-links"><a href="../index.html#about">About</a><a href="../index.html#rules">Rules</a><a
+                    href="../index.html#games">Games</a></div>
+            <div class="hamburger"><span></span><span></span><span></span></div>
+        </div>
+    </nav>
+
+    <div class="game-page">
+        <div class="container">
+            <div class="back-nav"><a href="../index.html#games" class="back-link">← Back to All Games</a></div>
+
+            <div class="game-header fade-in">
+                <span class="game-header-icon">🎡</span>
+                <h1>Colour Wheel of Fortune</h1>
+                <div class="game-header-line"></div>
+            </div>
+
+            <div class="quick-stats fade-in">
+                <span class="stat-badge price"><span class="stat-icon">🪙</span> 10–40 Tokens (max)</span>
+                <span class="stat-badge manager"><span class="stat-icon">👤</span> Manager: Saarthi</span>
+            </div>
+
+            <div class="game-content">
+                <div class="game-section fade-in">
+                    <h2 class="game-section-title"><span class="emoji">📖</span> How to Play</h2>
+                    <ul class="rules-list">
+                        <li><strong>1–4 players</strong> can play per round.</li>
+                        <li>The wheel has <strong>8 distinct colours</strong> across <strong>16 parts</strong>.</li>
+                        <li>Each player bets tokens on a colour of their choice.</li>
+                        <li>The wheel is spun — <strong>only 1 colour wins</strong>.</li>
+                        <li>Winnings are determined by the colour's multiplier.</li>
+                    </ul>
+                </div>
+
+                <div class="game-section fade-in">
+                    <h2 class="game-section-title"><span class="emoji">💰</span> Colour Multipliers</h2>
+                    <div class="outcomes-card">
+                        <table class="outcomes-table">
+                            <thead>
+                                <tr>
+                                    <th>Colour</th>
+                                    <th>Slot 1</th>
+                                    <th>Slot 2</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>🟡 Light Yellow</td>
+                                    <td><span class="multiplier lose">0x</span></td>
+                                    <td><span class="multiplier lose">0x</span></td>
+                                </tr>
+                                <tr>
+                                    <td>🔵 Blue</td>
+                                    <td><span class="multiplier neutral">1x</span></td>
+                                    <td><span class="multiplier neutral">1x</span></td>
+                                </tr>
+                                <tr>
+                                    <td>🟢 Green</td>
+                                    <td><span class="multiplier lose">0x</span></td>
+                                    <td><span class="multiplier lose">0x</span></td>
+                                </tr>
+                                <tr>
+                                    <td>⚫ Black</td>
+                                    <td><span class="multiplier win">1.5x</span></td>
+                                    <td><span class="multiplier win">2x</span></td>
+                                </tr>
+                                <tr>
+                                    <td>⚪ White</td>
+                                    <td><span class="multiplier lose">0x</span></td>
+                                    <td><span class="multiplier neutral">1x</span></td>
+                                </tr>
+                                <tr>
+                                    <td>🟤 Brown</td>
+                                    <td><span class="multiplier lose">0x</span></td>
+                                    <td><span class="multiplier neutral">1x</span></td>
+                                </tr>
+                                <tr>
+                                    <td>🔴 Red</td>
+                                    <td><span class="multiplier win">1.5x</span></td>
+                                    <td><span class="multiplier win">1.5x</span></td>
+                                </tr>
+                                <tr>
+                                    <td>🟠 Dark Yellow</td>
+                                    <td><span class="multiplier lose">0x</span></td>
+                                    <td><span class="multiplier neutral">1x</span></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="note-box">
+                        <strong>💡 Tip:</strong> Black has the highest potential payout at 2x but only 2 out of 16
+                        slots. Red offers consistent 1.5x on both slots!
+                    </div>
+                </div>
+            </div>
+
+            <div class="back-cta fade-in"><a href="../index.html#games" class="cta-btn">🎮 Back to All Games</a></div>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-brand"><img src="../Dream Merchants Logo.jpeg" alt="Dream Merchants"><span>Dream
+                    Merchants</span></div>
+            <p class="footer-text">CASHINO 3.0 — The Ultimate Token Tournament © 2026</p>
+        </div>
+    </footer>
+    <script src="../js/main.js"></script>
+</body>
+
+</html>

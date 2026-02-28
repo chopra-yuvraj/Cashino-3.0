@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TileTango — CASHINO 3.0</title>
+    <meta name="description"
+        content="TileTango: Memorize the pattern and flip tiles in the correct order to win up to 3x!">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="icon" href="../cashino-3-0.jpg" type="image/jpeg">
+</head>
+
+<body>
+    <canvas id="particle-canvas"></canvas>
+    <nav class="navbar">
+        <div class="container nav-inner">
+            <a href="../index.html" class="nav-brand"><img src="../Dream Merchants Logo.jpeg"
+                    alt="Dream Merchants"><span>CASHINO 3.0</span></a>
+            <div class="nav-links"><a href="../index.html#about">About</a><a href="../index.html#rules">Rules</a><a
+                    href="../index.html#games">Games</a></div>
+            <div class="hamburger"><span></span><span></span><span></span></div>
+        </div>
+    </nav>
+
+    <div class="game-page">
+        <div class="container">
+            <div class="back-nav"><a href="../index.html#games" class="back-link">← Back to All Games</a></div>
+
+            <div class="game-header fade-in">
+                <span class="game-header-icon">🧩</span>
+                <h1>TileTango</h1>
+                <div class="game-header-line"></div>
+            </div>
+
+            <div class="quick-stats fade-in">
+                <span class="stat-badge price"><span class="stat-icon">🪙</span> 10 Tokens</span>
+                <span class="stat-badge manager"><span class="stat-icon">👤</span> Manager: TBA</span>
+            </div>
+
+            <div class="game-content">
+                <div class="game-section fade-in">
+                    <h2 class="game-section-title"><span class="emoji">📖</span> How to Play</h2>
+                    <ul class="rules-list">
+                        <li>There are <strong>25 tiles</strong> on the board with mathematical symbols: %, $, +, {}, @,
+                            #, *</li>
+                        <li>Tiles are displayed for <strong>10 seconds</strong> — memorize the pattern!</li>
+                        <li>After the display time, the pattern will be shown and you must <strong>flip tiles in the
+                                exact order</strong> of the pattern.</li>
+                        <li>You get <strong>2 chances to mess up</strong>. Every wrong tile resets your progress and you
+                            must start from the beginning.</li>
+                        <li>You <strong>cannot jumble</strong> the order of the pattern — it must be exact.</li>
+                        <li>Patterns are randomly assigned — there are 10 total patterns of varying difficulty.</li>
+                    </ul>
+                </div>
+
+                <div class="game-section fade-in">
+                    <h2 class="game-section-title"><span class="emoji">💰</span> Winning Multipliers</h2>
+                    <div class="outcomes-card">
+                        <table class="outcomes-table">
+                            <thead>
+                                <tr>
+                                    <th>Difficulty</th>
+                                    <th>Symbols in Pattern</th>
+                                    <th>Count</th>
+                                    <th>Multiplier</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>🟢 Easy</td>
+                                    <td>4 symbols</td>
+                                    <td>4 patterns</td>
+                                    <td><span class="multiplier neutral">1.5x</span></td>
+                                </tr>
+                                <tr>
+                                    <td>🟡 Medium</td>
+                                    <td>6 symbols</td>
+                                    <td>4 patterns</td>
+                                    <td><span class="multiplier win">2x</span></td>
+                                </tr>
+                                <tr>
+                                    <td>🔴 Hard</td>
+                                    <td>8 symbols</td>
+                                    <td>2 patterns</td>
+                                    <td><span class="multiplier win">3x</span></td>
+                                </tr>
+                                <tr>
+                                    <td>❌ Failed</td>
+                                    <td>—</td>
+                                    <td>—</td>
+                                    <td><span class="multiplier lose">0x — Lose All</span></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="note-box">
+                        <strong>💡 Tip:</strong> You only have 10 seconds to memorize the pattern. Focus on the
+                        sequence, not just the symbols — order matters!
+                    </div>
+                </div>
+            </div>
+
+            <div class="back-cta fade-in"><a href="../index.html#games" class="cta-btn">🎮 Back to All Games</a></div>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-brand"><img src="../Dream Merchants Logo.jpeg" alt="Dream Merchants"><span>Dream
+                    Merchants</span></div>
+            <p class="footer-text">CASHINO 3.0 — The Ultimate Token Tournament © 2026</p>
+        </div>
+    </footer>
+    <script src="../js/main.js"></script>
+</body>
+
+</html>
