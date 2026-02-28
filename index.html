@@ -4,9 +4,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>CASHINO 3.0 — The Ultimate Token Tournament | Dream Merchants</title>
+  <title>CASHINO 3.0 &mdash; Dream Merchants</title>
   <meta name="description"
-    content="CASHINO 3.0 is a high-energy arcade-style token tournament by Dream Merchants. Play 13 strategy games, outsmart your opponents, and win big!">
+    content="CASHINO 3.0 — The Ultimate Token Tournament by Dream Merchants. 13 games, 150 tokens, one winner.">
   <link rel="stylesheet" href="css/style.css">
   <link rel="icon" href="cashino-3-0.jpg" type="image/jpeg">
 </head>
@@ -15,37 +15,31 @@
 
   <canvas id="particle-canvas"></canvas>
 
-  <!-- Navigation -->
+  <!-- Navbar -->
   <nav class="navbar">
-    <div class="container nav-inner">
+    <div class="nav-inner">
       <a href="index.html" class="nav-brand">
         <img src="Dream Merchants Logo.jpeg" alt="Dream Merchants">
-        <span>CASHINO 3.0</span>
+        <span>Cashino 3.0</span>
       </a>
       <div class="nav-links">
-        <a href="#about">About</a>
-        <a href="#rules">Rules</a>
         <a href="#games">Games</a>
+        <a href="#rules">Rules</a>
         <a href="https://riviera.vit.ac.in/events/evt_053db06c49a24101bc7503e3b7c8d41b" class="nav-cta">Register
           &#8377;200</a>
       </div>
-      <div class="hamburger">
-        <span></span><span></span><span></span>
-      </div>
+      <div class="hamburger"><span></span><span></span><span></span></div>
     </div>
   </nav>
 
-  <!-- Hero Section -->
+  <!-- Hero -->
   <section class="hero">
     <div class="hero-content">
-      <span class="hero-deco hero-deco-tl">&spades;</span>
-      <span class="hero-deco hero-deco-br">&hearts;</span>
-
       <img src="cashino-3-0.jpg" alt="CASHINO 3.0" class="hero-logo">
-      <p class="hero-tagline">Presented by Dream Merchants</p>
+      <p class="hero-tagline">Dream Merchants presents</p>
       <h1 class="hero-title">CASHINO 3.0</h1>
-      <p class="hero-desc">A high-stakes strategy battle where everyone starts equal. Play smart across 13 thrilling
-        games, outsmart your opponents, and walk away with the most tokens to claim victory.</p>
+      <p class="hero-sub">Era Sezhiyan Auditorium &middot; 01 March &middot; 10
+        AM</p>
       <div class="hero-suits">
         <span>&spades;</span>
         <span>&hearts;</span>
@@ -55,256 +49,169 @@
     </div>
   </section>
 
-  <!-- Event Info Bar -->
-  <section class="event-bar">
-    <div class="container">
-      <div class="event-bar-grid">
-        <div class="event-bar-item fade-in">
-          <span class="event-bar-icon">
-            <svg class="icon icon-lg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" />
-              <circle cx="12" cy="10" r="3" />
-            </svg>
-          </span>
-          <span class="event-bar-label">Venue</span>
-          <span class="event-bar-value">Era Sezhiyan Auditorium</span>
-        </div>
-        <div class="event-bar-item fade-in" data-delay="100">
-          <span class="event-bar-icon">
-            <svg class="icon icon-lg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <rect x="3" y="4" width="18" height="18" rx="2" />
-              <line x1="16" y1="2" x2="16" y2="6" />
-              <line x1="8" y1="2" x2="8" y2="6" />
-              <line x1="3" y1="10" x2="21" y2="10" />
-            </svg>
-          </span>
-          <span class="event-bar-label">Date</span>
-          <span class="event-bar-value">01 March 2026</span>
-        </div>
-        <div class="event-bar-item fade-in" data-delay="200">
-          <span class="event-bar-icon">
-            <svg class="icon icon-lg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <circle cx="12" cy="12" r="10" />
-              <polyline points="12 6 12 12 16 14" />
-            </svg>
-          </span>
-          <span class="event-bar-label">Timings</span>
-          <span class="event-bar-value">10:00 AM &mdash; 1:00 PM</span>
-        </div>
+  <div class="gold-line"></div>
+
+  <!-- Info Strip -->
+  <div class="info-strip reveal">
+    <div class="info-item">
+      <div class="info-value">150</div>
+      <div class="info-label">Starting Tokens</div>
+    </div>
+    <div class="info-item">
+      <div class="info-value">13</div>
+      <div class="info-label">Games</div>
+    </div>
+    <div class="info-item">
+      <div class="info-value">1</div>
+      <div class="info-label">Champion</div>
+    </div>
+  </div>
+
+  <div class="gold-line"></div>
+
+  <!-- Slot Machine -->
+  <section class="slot-section">
+    <p class="slot-label reveal">Feeling lucky?</p>
+    <div class="slot-machine reveal" data-delay="100">
+      <div class="slot-window">
+        <div class="slot-indicator"></div>
+        <div class="slot-reel"></div>
       </div>
+      <button class="spin-btn">SPIN</button>
+      <div class="slot-result"></div>
     </div>
   </section>
 
-  <!-- About Section -->
-  <section id="about" class="about-section">
-    <div class="container">
-      <h2 class="section-title fade-in">About The Event</h2>
-      <p class="section-subtitle fade-in">Where strategy meets fortune</p>
-      <div class="about-card fade-in">
-        <p class="about-text">
-          <strong>CASHINO 3.0</strong> is not your average college fest game &mdash; it's an electrifying token-based
-          tournament where every participant starts on equal footing with <strong>150 tokens</strong>. Navigate through
-          <strong>13 unique games</strong>, each designed to test your wits, luck, and strategic thinking. From the
-          calculated risk of <strong>Minefield</strong> to the high-stakes bluffs of <strong>Liar Dice</strong>, every
-          game is a chance to multiply your fortune &mdash; or lose it all.
-        </p>
-        <p class="about-text" style="margin-top: 16px;">
-          The goal is simple: <strong>finish with the maximum number of tokens</strong>. There are no shortcuts &mdash;
-          just smart play, sharp decisions, and a bit of luck. Will you play it safe or go all in?
-        </p>
-        <div class="about-highlight">
-          <span class="about-badge"><span style="color:var(--crimson)">&diams;</span> 150 Starting Tokens</span>
-          <span class="about-badge"><span style="color:var(--crimson)">&spades;</span> 13 Games</span>
-          <span class="about-badge"><span style="color:var(--crimson)">&hearts;</span> Most Tokens Wins</span>
-          <span class="about-badge"><span style="color:var(--crimson)">&clubs;</span> 1 Unit = 1 Token</span>
-        </div>
-      </div>
-    </div>
+  <div class="gold-line"></div>
+
+  <!-- Games — Typography List -->
+  <section id="games" class="games-list-section">
+    <nav class="games-list">
+      <a href="pages/minefield.html" class="game-row reveal">
+        <span class="game-row-left"><span class="game-num">01</span><span class="game-name">Minefield</span></span>
+        <span class="game-price">10 Tokens</span>
+      </a>
+      <a href="pages/colour-wheel.html" class="game-row reveal" data-delay="40">
+        <span class="game-row-left"><span class="game-num">02</span><span class="game-name">Colour Wheel</span></span>
+        <span class="game-price">10&ndash;40 Tokens</span>
+      </a>
+      <a href="pages/liar-dice.html" class="game-row reveal" data-delay="80">
+        <span class="game-row-left"><span class="game-num">03</span><span class="game-name">Liar Dice</span></span>
+        <span class="game-price">6+ Tokens</span>
+      </a>
+      <a href="pages/tiletango.html" class="game-row reveal" data-delay="120">
+        <span class="game-row-left"><span class="game-num">04</span><span class="game-name">TileTango</span></span>
+        <span class="game-price">10 Tokens</span>
+      </a>
+      <a href="pages/luck-exchange.html" class="game-row reveal" data-delay="160">
+        <span class="game-row-left"><span class="game-num">05</span><span class="game-name">LuckExchange</span></span>
+        <span class="game-price">10 Tokens</span>
+      </a>
+      <a href="pages/7-up-down.html" class="game-row reveal" data-delay="200">
+        <span class="game-row-left"><span class="game-num">06</span><span class="game-name">7 Up &amp;
+            Down</span></span>
+        <span class="game-price">1&ndash;60 Tokens</span>
+      </a>
+      <a href="pages/plinko.html" class="game-row reveal" data-delay="240">
+        <span class="game-row-left"><span class="game-num">07</span><span class="game-name">Plinko</span></span>
+        <span class="game-price">4&ndash;6 Tokens</span>
+      </a>
+      <a href="pages/tangram.html" class="game-row reveal" data-delay="280">
+        <span class="game-row-left"><span class="game-num">08</span><span class="game-name">Tangram</span></span>
+        <span class="game-price">10 Tokens</span>
+      </a>
+      <a href="pages/board-basketball.html" class="game-row reveal" data-delay="320">
+        <span class="game-row-left"><span class="game-num">09</span><span class="game-name">Board
+            Basketball</span></span>
+        <span class="game-price">10 Tokens</span>
+      </a>
+      <a href="pages/snake-pit.html" class="game-row reveal" data-delay="360">
+        <span class="game-row-left"><span class="game-num">10</span><span class="game-name">Snake Pit</span></span>
+        <span class="game-price">10 Tokens</span>
+      </a>
+      <a href="pages/dicejack.html" class="game-row reveal" data-delay="400">
+        <span class="game-row-left"><span class="game-num">11</span><span class="game-name">Dicejack</span></span>
+        <span class="game-price">10&ndash;40 Tokens</span>
+      </a>
+      <a href="pages/order-can-guessing.html" class="game-row reveal" data-delay="440">
+        <span class="game-row-left"><span class="game-num">12</span><span class="game-name">Order Can
+            Guessing</span></span>
+        <span class="game-price">10 Tokens</span>
+      </a>
+      <a href="pages/luck-ladder.html" class="game-row reveal" data-delay="480">
+        <span class="game-row-left"><span class="game-num">13</span><span class="game-name">Luck Ladder</span></span>
+        <span class="game-price">10 Tokens</span>
+      </a>
+    </nav>
   </section>
 
-  <hr class="gold-divider">
+  <div class="gold-line"></div>
 
-  <!-- Rules Section -->
+  <!-- Rules (No Header) -->
   <section id="rules" class="rules-section">
-    <div class="container">
-      <h2 class="section-title fade-in">General Guidelines &amp; Rules</h2>
-      <p class="section-subtitle fade-in">Read carefully before stepping into the arena</p>
-
-      <div class="accordion fade-in">
-        <div class="accordion-item active">
-          <div class="accordion-header">
-            <span class="accordion-header-left"><span class="suit suit-diamond" style="color:var(--gold)"></span> Token
-              System</span>
-            <span class="accordion-icon"></span>
-          </div>
-          <div class="accordion-body">
-            <div class="accordion-body-inner">
-              <ul>
-                <li>All players will receive <strong>150 tokens</strong> each to start with.</li>
-                <li>Price: <strong>1 unit = 1 token</strong>.</li>
-                <li>Registration Fee: <strong>&#8377;200</strong> (inclusive of GST).</li>
-              </ul>
-            </div>
-          </div>
+    <div class="accordion">
+      <div class="accordion-item active">
+        <div class="accordion-header">
+          <span class="accordion-header-left"><span class="suit suit-diamond" style="color:var(--gold)"></span> Token
+            System</span>
+          <span class="accordion-icon"></span>
         </div>
-
-        <div class="accordion-item">
-          <div class="accordion-header">
-            <span class="accordion-header-left"><span class="suit suit-spade" style="color:var(--gold)"></span> Game
-              Rules</span>
-            <span class="accordion-icon"></span>
-          </div>
-          <div class="accordion-body">
-            <div class="accordion-body-inner">
-              <ul>
-                <li>In every game, the <strong>bold lines</strong> state the winning/losing criteria with their
-                  multiplier.</li>
-                <li>Once tokens used are <strong>non-refundable</strong> for each and every game.</li>
-                <li>Each game has its own set of specific rules and multipliers &mdash; check the individual game pages
-                  for details.</li>
-              </ul>
-            </div>
-          </div>
-        </div>
-
-        <div class="accordion-item">
-          <div class="accordion-header">
-            <span class="accordion-header-left"><span class="suit suit-heart" style="color:var(--crimson)"></span> Fair
-              Play &amp; Disputes</span>
-            <span class="accordion-icon"></span>
-          </div>
-          <div class="accordion-body">
-            <div class="accordion-body-inner">
-              <ul>
-                <li>If there is <strong>UFM (Unfair Means)</strong> in any game, the player loses his pledged tokens.
-                </li>
-                <li>If there is any mistake from the <strong>house side</strong>, the player receives back his tokens.
-                </li>
-                <li>Any dispute will be resolved by the <strong>event coordinator</strong>.</li>
-              </ul>
-            </div>
-          </div>
-        </div>
-
-        <div class="accordion-item">
-          <div class="accordion-header">
-            <span class="accordion-header-left"><span class="suit suit-club" style="color:var(--gold)"></span> Judgement
-              Criteria</span>
-            <span class="accordion-icon"></span>
-          </div>
-          <div class="accordion-body">
-            <div class="accordion-body-inner">
-              <ul>
-                <li>The participant with the <strong>maximum amount of tokens remaining</strong> at the end of all games
-                  wins the tournament.</li>
-                <li>Strategy, risk management, and smart play are the keys to victory.</li>
-              </ul>
-            </div>
+        <div class="accordion-body">
+          <div class="accordion-body-inner">
+            <ul>
+              <li>Every player receives <strong>150 tokens</strong> to start.</li>
+              <li>Price: <strong>1 unit = 1 token.</strong></li>
+              <li>Registration: <strong>&#8377;200</strong> inclusive of GST.</li>
+            </ul>
           </div>
         </div>
       </div>
-    </div>
-  </section>
-
-  <hr class="gold-divider">
-
-  <!-- Games Section -->
-  <section id="games" class="games-section">
-    <div class="container">
-      <h2 class="section-title fade-in">The Games Arena</h2>
-      <p class="section-subtitle fade-in">13 games. Infinite strategies. Choose wisely.</p>
-
-      <div class="games-grid">
-        <a href="pages/minefield.html" class="game-card fade-in" data-delay="0">
-          <span class="game-card-icon">&diams;</span>
-          <span class="game-card-name">Minefield</span>
-          <span class="game-card-price">10 Tokens</span>
-          <span class="game-card-arrow">&rarr;</span>
-        </a>
-
-        <a href="pages/colour-wheel.html" class="game-card fade-in" data-delay="60">
-          <span class="game-card-icon">&hearts;</span>
-          <span class="game-card-name">Colour Wheel of Fortune</span>
-          <span class="game-card-price">10&ndash;40 Tokens</span>
-          <span class="game-card-arrow">&rarr;</span>
-        </a>
-
-        <a href="pages/liar-dice.html" class="game-card fade-in" data-delay="120">
-          <span class="game-card-icon">&spades;</span>
-          <span class="game-card-name">Liar Dice</span>
-          <span class="game-card-price">6+ Tokens</span>
-          <span class="game-card-arrow">&rarr;</span>
-        </a>
-
-        <a href="pages/tiletango.html" class="game-card fade-in" data-delay="180">
-          <span class="game-card-icon">&clubs;</span>
-          <span class="game-card-name">TileTango</span>
-          <span class="game-card-price">10 Tokens</span>
-          <span class="game-card-arrow">&rarr;</span>
-        </a>
-
-        <a href="pages/luck-exchange.html" class="game-card fade-in" data-delay="0">
-          <span class="game-card-icon">&diams;</span>
-          <span class="game-card-name">LuckExchange</span>
-          <span class="game-card-price">10 Tokens</span>
-          <span class="game-card-arrow">&rarr;</span>
-        </a>
-
-        <a href="pages/7-up-down.html" class="game-card fade-in" data-delay="60">
-          <span class="game-card-icon">&hearts;</span>
-          <span class="game-card-name">7 Up &amp; Down</span>
-          <span class="game-card-price">1&ndash;60 Tokens</span>
-          <span class="game-card-arrow">&rarr;</span>
-        </a>
-
-        <a href="pages/plinko.html" class="game-card fade-in" data-delay="120">
-          <span class="game-card-icon">&spades;</span>
-          <span class="game-card-name">Plinko</span>
-          <span class="game-card-price">4&ndash;6 Tokens</span>
-          <span class="game-card-arrow">&rarr;</span>
-        </a>
-
-        <a href="pages/tangram.html" class="game-card fade-in" data-delay="180">
-          <span class="game-card-icon">&clubs;</span>
-          <span class="game-card-name">Tangram</span>
-          <span class="game-card-price">10 Tokens</span>
-          <span class="game-card-arrow">&rarr;</span>
-        </a>
-
-        <a href="pages/board-basketball.html" class="game-card fade-in" data-delay="0">
-          <span class="game-card-icon">&diams;</span>
-          <span class="game-card-name">Board Basketball</span>
-          <span class="game-card-price">10 Tokens</span>
-          <span class="game-card-arrow">&rarr;</span>
-        </a>
-
-        <a href="pages/snake-pit.html" class="game-card fade-in" data-delay="60">
-          <span class="game-card-icon">&hearts;</span>
-          <span class="game-card-name">Snake Pit</span>
-          <span class="game-card-price">10 Tokens</span>
-          <span class="game-card-arrow">&rarr;</span>
-        </a>
-
-        <a href="pages/dicejack.html" class="game-card fade-in" data-delay="120">
-          <span class="game-card-icon">&spades;</span>
-          <span class="game-card-name">Dicejack</span>
-          <span class="game-card-price">10&ndash;40 Tokens</span>
-          <span class="game-card-arrow">&rarr;</span>
-        </a>
-
-        <a href="pages/order-can-guessing.html" class="game-card fade-in" data-delay="180">
-          <span class="game-card-icon">&clubs;</span>
-          <span class="game-card-name">Order Can Guessing</span>
-          <span class="game-card-price">10 Tokens</span>
-          <span class="game-card-arrow">&rarr;</span>
-        </a>
-
-        <a href="pages/luck-ladder.html" class="game-card fade-in" data-delay="0">
-          <span class="game-card-icon">&diams;</span>
-          <span class="game-card-name">Luck Ladder</span>
-          <span class="game-card-price">10 Tokens</span>
-          <span class="game-card-arrow">&rarr;</span>
-        </a>
+      <div class="accordion-item">
+        <div class="accordion-header">
+          <span class="accordion-header-left"><span class="suit suit-spade" style="color:var(--gold)"></span> Game
+            Rules</span>
+          <span class="accordion-icon"></span>
+        </div>
+        <div class="accordion-body">
+          <div class="accordion-body-inner">
+            <ul>
+              <li><strong>Bold lines</strong> in each game state winning/losing criteria with multipliers.</li>
+              <li>Tokens used are <strong>non-refundable</strong> per game.</li>
+              <li>Each game has specific rules &mdash; check individual game pages.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="accordion-item">
+        <div class="accordion-header">
+          <span class="accordion-header-left"><span class="suit suit-heart" style="color:var(--crimson)"></span> Fair
+            Play</span>
+          <span class="accordion-icon"></span>
+        </div>
+        <div class="accordion-body">
+          <div class="accordion-body-inner">
+            <ul>
+              <li><strong>UFM (Unfair Means)</strong> &mdash; player forfeits pledged tokens.</li>
+              <li>House-side error &mdash; player receives tokens back.</li>
+              <li>Disputes resolved by the <strong>event coordinator</strong>.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="accordion-item">
+        <div class="accordion-header">
+          <span class="accordion-header-left"><span class="suit suit-club" style="color:var(--gold)"></span>
+            Winning</span>
+          <span class="accordion-icon"></span>
+        </div>
+        <div class="accordion-body">
+          <div class="accordion-body-inner">
+            <ul>
+              <li>Most <strong>tokens remaining</strong> at the end wins the tournament.</li>
+              <li>Strategy, risk management, and sharp decisions are key.</li>
+            </ul>
+          </div>
+        </div>
       </div>
     </div>
   </section>

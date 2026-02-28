@@ -1,18 +1,18 @@
 /* ============================================
-   CASHINO 3.0 — Premium Casino JavaScript
-   Golden Embers · 3D Tilt · Hero Reveal
+   CASHINO 3.0 — Ultra-Premium JavaScript
+   Slot Machine · Golden Embers · Magnetic FX
    ============================================ */
 
 document.addEventListener('DOMContentLoaded', () => {
   initNavbar();
   initAccordion();
-  initFadeIn();
+  initReveal();
   initGoldenEmbers();
-  initCardTilt();
   initHeroReveal();
+  initSlotMachine();
 });
 
-/* ---------- Sticky Navbar + Hamburger ---------- */
+/* ---------- Navbar ---------- */
 function initNavbar() {
   const navbar = document.querySelector('.navbar');
   const hamburger = document.querySelector('.hamburger');
@@ -20,7 +20,7 @@ function initNavbar() {
 
   if (navbar) {
     window.addEventListener('scroll', () => {
-      navbar.classList.toggle('scrolled', window.scrollY > 50);
+      navbar.classList.toggle('scrolled', window.scrollY > 40);
     }, { passive: true });
   }
 
@@ -29,7 +29,6 @@ function initNavbar() {
       hamburger.classList.toggle('active');
       navLinks.classList.toggle('open');
     });
-
     navLinks.querySelectorAll('a').forEach(link => {
       link.addEventListener('click', () => {
         hamburger.classList.remove('active');
@@ -41,90 +40,155 @@ function initNavbar() {
 
 /* ---------- Accordion ---------- */
 function initAccordion() {
-  const headers = document.querySelectorAll('.accordion-header');
-  headers.forEach(header => {
+  document.querySelectorAll('.accordion-header').forEach(header => {
     header.addEventListener('click', () => {
       const item = header.parentElement;
       const isOpen = item.classList.contains('active');
-
       document.querySelectorAll('.accordion-item').forEach(i => i.classList.remove('active'));
-
       if (!isOpen) item.classList.add('active');
     });
   });
 }
 
-/* ---------- Staggered Fade-in on Scroll ---------- */
-function initFadeIn() {
-  const observer = new IntersectionObserver((entries) => {
+/* ---------- Scroll Reveal ---------- */
+function initReveal() {
+  const obs = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
-        const delay = entry.target.dataset.delay || 0;
-        setTimeout(() => {
-          entry.target.classList.add('visible');
-        }, parseInt(delay));
-        observer.unobserve(entry.target);
+        const d = entry.target.dataset.delay || 0;
+        setTimeout(() => entry.target.classList.add('visible'), parseInt(d));
+        obs.unobserve(entry.target);
       }
     });
-  }, { threshold: 0.08, rootMargin: '0px 0px -30px 0px' });
+  }, { threshold: 0.06, rootMargin: '0px 0px -20px 0px' });
 
-  document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+  document.querySelectorAll('.reveal, .fade-in').forEach(el => obs.observe(el));
 }
 
-/* ---------- Hero Typographic Reveal ---------- */
+/* ---------- Hero Title Character Reveal ---------- */
 function initHeroReveal() {
-  const heroTitle = document.querySelector('.hero-title');
-  if (!heroTitle || heroTitle.dataset.revealed) return;
+  const title = document.querySelector('.hero-title');
+  if (!title || title.dataset.revealed) return;
+  title.dataset.revealed = 'true';
 
-  heroTitle.dataset.revealed = 'true';
-  const text = heroTitle.textContent.trim();
-  heroTitle.innerHTML = '';
+  const text = title.textContent.trim();
+  title.innerHTML = '';
+  let idx = 0;
 
-  let charIndex = 0;
-  text.split('').forEach((char) => {
+  text.split('').forEach(char => {
     if (char === ' ') {
-      const space = document.createElement('span');
-      space.className = 'space';
-      space.innerHTML = '&nbsp;';
-      heroTitle.appendChild(space);
+      const sp = document.createElement('span');
+      sp.className = 'space';
+      sp.innerHTML = '&nbsp;';
+      title.appendChild(sp);
     } else {
-      const span = document.createElement('span');
-      span.className = 'char';
-      span.textContent = char;
-      span.style.animationDelay = `${0.4 + charIndex * 0.06}s`;
-      heroTitle.appendChild(span);
-      charIndex++;
+      const s = document.createElement('span');
+      s.className = 'char';
+      s.textContent = char;
+      s.style.animationDelay = `${0.3 + idx * 0.07}s`;
+      title.appendChild(s);
+      idx++;
     }
   });
 }
 
-/* ---------- 3D Tilt on Game Cards ---------- */
-function initCardTilt() {
-  const cards = document.querySelectorAll('.game-card');
+/* ---------- Slot Machine ---------- */
+function initSlotMachine() {
+  const spinBtn = document.querySelector('.spin-btn');
+  const reel = document.querySelector('.slot-reel');
+  const result = document.querySelector('.slot-result');
+  if (!spinBtn || !reel) return;
 
-  cards.forEach(card => {
-    card.addEventListener('mousemove', (e) => {
-      const rect = card.getBoundingClientRect();
-      const x = e.clientX - rect.left;
-      const y = e.clientY - rect.top;
-      const centerX = rect.width / 2;
-      const centerY = rect.height / 2;
+  const games = [
+    { name: 'Minefield', href: 'pages/minefield.html' },
+    { name: 'Colour Wheel', href: 'pages/colour-wheel.html' },
+    { name: 'Liar Dice', href: 'pages/liar-dice.html' },
+    { name: 'TileTango', href: 'pages/tiletango.html' },
+    { name: 'LuckExchange', href: 'pages/luck-exchange.html' },
+    { name: '7 Up & Down', href: 'pages/7-up-down.html' },
+    { name: 'Plinko', href: 'pages/plinko.html' },
+    { name: 'Tangram', href: 'pages/tangram.html' },
+    { name: 'Board Basketball', href: 'pages/board-basketball.html' },
+    { name: 'Snake Pit', href: 'pages/snake-pit.html' },
+    { name: 'Dicejack', href: 'pages/dicejack.html' },
+    { name: 'Order Can Guessing', href: 'pages/order-can-guessing.html' },
+    { name: 'Luck Ladder', href: 'pages/luck-ladder.html' },
+  ];
 
-      const rotateX = ((y - centerY) / centerY) * -8;
-      const rotateY = ((x - centerX) / centerX) * 8;
+  const ITEM_HEIGHT = 120;
 
-      card.style.transform = `perspective(800px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale(1.02)`;
-    });
+  // Build reel: repeat games 6 times for long scrolling
+  function buildReel() {
+    reel.innerHTML = '';
+    for (let cycle = 0; cycle < 6; cycle++) {
+      games.forEach(g => {
+        const div = document.createElement('div');
+        div.className = 'slot-item';
+        div.textContent = g.name;
+        reel.appendChild(div);
+      });
+    }
+  }
+  buildReel();
 
-    card.addEventListener('mouseleave', () => {
-      card.style.transform = 'perspective(800px) rotateX(0) rotateY(0) scale(1)';
-      card.style.transition = 'transform 0.5s cubic-bezier(0.22, 1, 0.36, 1)';
-      setTimeout(() => { card.style.transition = ''; }, 500);
-    });
+  let spinning = false;
 
-    card.addEventListener('mouseenter', () => {
-      card.style.transition = 'none';
-    });
+  spinBtn.addEventListener('click', () => {
+    if (spinning) return;
+    spinning = true;
+    spinBtn.classList.add('spinning');
+    spinBtn.textContent = 'SPINNING...';
+
+    if (result) {
+      result.classList.remove('show');
+      result.innerHTML = '';
+    }
+
+    // Pick random winner
+    const winIndex = Math.floor(Math.random() * games.length);
+    const winner = games[winIndex];
+
+    // Target position: land on cycle 4 + winIndex
+    const targetIndex = (4 * games.length) + winIndex;
+    const targetOffset = -(targetIndex * ITEM_HEIGHT) + (0); // center in window
+
+    // Reset position
+    reel.style.transition = 'none';
+    reel.style.transform = 'translateY(0)';
+    reel.offsetHeight; // force reflow
+
+    // Animate with CSS
+    reel.style.transition = `transform 4s cubic-bezier(0.15, 0.85, 0.25, 1)`;
+    reel.style.transform = `translateY(${targetOffset}px)`;
+
+    // Apply blur during spin
+    reel.style.filter = 'blur(2px)';
+    setTimeout(() => {
+      reel.style.filter = 'blur(1px)';
+    }, 2500);
+    setTimeout(() => {
+      reel.style.filter = 'blur(0)';
+    }, 3600);
+
+    // Highlight winner + show result
+    setTimeout(() => {
+      spinning = false;
+      spinBtn.classList.remove('spinning');
+      spinBtn.textContent = 'SPIN';
+
+      // Highlight active item
+      document.querySelectorAll('.slot-item').forEach(item => item.classList.remove('active'));
+      const allItems = reel.querySelectorAll('.slot-item');
+      if (allItems[targetIndex]) {
+        allItems[targetIndex].classList.add('active');
+      }
+
+      // Show result link
+      if (result) {
+        result.innerHTML = `Play <a href="${winner.href}">${winner.name} &rarr;</a>`;
+        setTimeout(() => result.classList.add('show'), 50);
+      }
+    }, 4200);
   });
 }
 
@@ -132,10 +196,9 @@ function initCardTilt() {
 function initGoldenEmbers() {
   const canvas = document.getElementById('particle-canvas');
   if (!canvas) return;
-
   const ctx = canvas.getContext('2d');
   let embers = [];
-  const EMBER_COUNT = 45;
+  const COUNT = 35;
 
   function resize() {
     canvas.width = window.innerWidth;
@@ -145,81 +208,64 @@ function initGoldenEmbers() {
   window.addEventListener('resize', resize);
 
   class Ember {
-    constructor() {
-      this.reset(true);
+    constructor(init) {
+      this.reset(init);
     }
-
-    reset(initial = false) {
+    reset(init = false) {
       this.x = Math.random() * canvas.width;
-      this.y = initial ? Math.random() * canvas.height : canvas.height + 20;
-      this.size = Math.random() * 3 + 1;
-      this.speedY = -(Math.random() * 0.6 + 0.15);
-      this.speedX = (Math.random() - 0.5) * 0.25;
-      this.wobbleSpeed = Math.random() * 0.02 + 0.005;
-      this.wobbleAmp = Math.random() * 30 + 10;
-      this.wobbleOffset = Math.random() * Math.PI * 2;
+      this.y = init ? Math.random() * canvas.height : canvas.height + 10;
+      this.size = Math.random() * 2.5 + 0.8;
+      this.vy = -(Math.random() * 0.5 + 0.1);
+      this.vx = (Math.random() - 0.5) * 0.15;
+      this.wobble = Math.random() * 0.015 + 0.003;
+      this.wobbleAmp = Math.random() * 20 + 8;
+      this.wobbleOff = Math.random() * Math.PI * 2;
       this.life = 0;
-      this.maxLife = Math.random() * 600 + 300;
-      this.blur = Math.random() * 4 + 2;
-
-      // Gold tones
+      this.maxLife = Math.random() * 700 + 400;
+      this.blur = Math.random() * 3 + 2;
       const golds = [
-        { r: 212, g: 168, b: 67 },  // --gold
-        { r: 232, g: 197, b: 104 }, // --gold-light
-        { r: 240, g: 214, b: 138 }, // --gold-bright
-        { r: 201, g: 36, b: 63 },   // --crimson (rare)
+        { r: 201, g: 168, b: 76 },
+        { r: 223, g: 192, b: 110 },
+        { r: 240, g: 216, b: 142 },
       ];
-      const colorIdx = Math.random() < 0.88 ? Math.floor(Math.random() * 3) : 3;
-      this.color = golds[colorIdx];
+      const idx = Math.random() < 0.92 ? Math.floor(Math.random() * 3) : 0;
+      this.color = golds[idx];
     }
-
     update() {
       this.life++;
-      this.y += this.speedY;
-      this.x += this.speedX + Math.sin(this.life * this.wobbleSpeed + this.wobbleOffset) * 0.3;
-
-      if (this.life > this.maxLife || this.y < -20) {
-        this.reset();
-      }
+      this.y += this.vy;
+      this.x += this.vx + Math.sin(this.life * this.wobble + this.wobbleOff) * 0.2;
+      if (this.life > this.maxLife || this.y < -10) this.reset();
     }
-
     draw() {
-      const fadeIn = Math.min(this.life / 60, 1);
-      const fadeOut = Math.max(1 - (this.life / this.maxLife), 0);
-      const alpha = fadeIn * fadeOut * 0.6;
-
-      if (alpha <= 0) return;
-
+      const fi = Math.min(this.life / 80, 1);
+      const fo = Math.max(1 - this.life / this.maxLife, 0);
+      const a = fi * fo * 0.5;
+      if (a <= 0) return;
       const { r, g, b } = this.color;
 
-      // Outer glow (bokeh)
       ctx.beginPath();
       ctx.arc(this.x, this.y, this.size * this.blur, 0, Math.PI * 2);
-      ctx.fillStyle = `rgba(${r},${g},${b},${alpha * 0.08})`;
+      ctx.fillStyle = `rgba(${r},${g},${b},${a * 0.06})`;
       ctx.fill();
 
-      // Mid glow
       ctx.beginPath();
-      ctx.arc(this.x, this.y, this.size * 2, 0, Math.PI * 2);
-      ctx.fillStyle = `rgba(${r},${g},${b},${alpha * 0.2})`;
+      ctx.arc(this.x, this.y, this.size * 1.5, 0, Math.PI * 2);
+      ctx.fillStyle = `rgba(${r},${g},${b},${a * 0.18})`;
       ctx.fill();
 
-      // Core
       ctx.beginPath();
       ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
-      ctx.fillStyle = `rgba(${r},${g},${b},${alpha * 0.7})`;
+      ctx.fillStyle = `rgba(${r},${g},${b},${a * 0.6})`;
       ctx.fill();
     }
   }
 
-  for (let i = 0; i < EMBER_COUNT; i++) {
-    embers.push(new Ember());
-  }
+  for (let i = 0; i < COUNT; i++) embers.push(new Ember(true));
 
-  function animate() {
+  (function animate() {
     ctx.clearRect(0, 0, canvas.width, canvas.height);
     embers.forEach(e => { e.update(); e.draw(); });
     requestAnimationFrame(animate);
-  }
-  animate();
+  })();
 }
