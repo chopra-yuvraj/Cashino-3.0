@@ -4,8 +4,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Snake Pit — CASHINO 3.0</title>
-    <meta name="description" content="Snake Pit: Navigate balls through a 3-stage course to win up to 2x your tokens!">
+    <title>Snake Pit &mdash; CASHINO 3.0</title>
+    <meta name="description" content="Snake Pit: Navigate 3 stages of escalating risk to multiply your tokens!">
     <link rel="stylesheet" href="../css/style.css">
     <link rel="icon" href="../cashino-3-0.jpg" type="image/jpeg">
 </head>
@@ -13,83 +13,80 @@
 <body>
     <canvas id="particle-canvas"></canvas>
     <nav class="navbar">
-        <div class="container nav-inner">
-            <a href="../index.html" class="nav-brand"><img src="../Dream Merchants Logo.jpeg"
-                    alt="Dream Merchants"><span>CASHINO 3.0</span></a>
+        <div class="container nav-inner"><a href="../index.html" class="nav-brand"><img
+                    src="../Dream Merchants Logo.jpeg" alt="Dream Merchants"><span>CASHINO 3.0</span></a>
             <div class="nav-links"><a href="../index.html#about">About</a><a href="../index.html#rules">Rules</a><a
-                    href="../index.html#games">Games</a></div>
+                    href="../index.html#games">Games</a><a
+                    href="https://riviera.vit.ac.in/events/evt_053db06c49a24101bc7503e3b7c8d41b"
+                    class="nav-cta">Register &#8377;200</a></div>
             <div class="hamburger"><span></span><span></span><span></span></div>
         </div>
     </nav>
 
     <div class="game-page">
         <div class="container">
-            <div class="back-nav"><a href="../index.html#games" class="back-link">← Back to All Games</a></div>
-
-            <div class="game-header fade-in">
-                <span class="game-header-icon">🐍</span>
+            <div class="back-nav"><a href="../index.html#games" class="back-link"><svg width="16" height="16"
+                        viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <polyline points="15 18 9 12 15 6" />
+                    </svg> Back to All Games</a></div>
+            <div class="game-header fade-in"><span class="game-header-icon">&hearts;</span>
                 <h1>Snake Pit</h1>
                 <div class="game-header-line"></div>
             </div>
-
             <div class="quick-stats fade-in">
-                <span class="stat-badge price"><span class="stat-icon">🪙</span> 10 Tokens</span>
-                <span class="stat-badge manager"><span class="stat-icon">👤</span> Manager: Hardik</span>
+                <span class="stat-badge price"><span class="stat-icon">&diams;</span> 10 Tokens</span>
+                <span class="stat-badge manager"><span class="stat-icon">&spades;</span> Manager: Ansh</span>
             </div>
-
             <div class="game-content">
                 <div class="game-section fade-in">
-                    <h2 class="game-section-title"><span class="emoji">📖</span> How to Play</h2>
+                    <h2 class="game-section-title"><span class="section-icon">&spades;</span> How to Play</h2>
                     <ul class="rules-list">
-                        <li>You get <strong>3 balls</strong> to attempt the course.</li>
-                        <li>There are <strong>3 stages</strong> throughout the course — each progressively harder.</li>
-                        <li>Players can attempt to <strong>fulfil any stage</strong>.</li>
-                        <li>On completion of any stage, the player <strong>cannot play further</strong> even if chances
-                            are remaining — they must <strong>cash out</strong> at the scored multiplier.</li>
-                        <li>If the ball <strong>falls off the board</strong>, 1 chance is deducted until 0 are left.
-                        </li>
-                        <li>Stages will be <strong>marked on the board</strong>.</li>
+                        <li><strong>Individual player</strong> game with <strong>3 balls</strong> and <strong>3
+                                stages</strong>.</li>
+                        <li>The player throws a ball into one of the numbered or coloured holes.</li>
+                        <li>Each stage has a different risk/reward profile.</li>
+                        <li>After completing a stage, the player can <strong>cash out</strong> or <strong>proceed to the
+                                next stage</strong>.</li>
+                        <li><strong>Landing on a snake hole means you lose all tokens.</strong></li>
+                        <li>If a player cashes out, winnings are based on the stage they completed.</li>
                     </ul>
                 </div>
-
                 <div class="game-section fade-in">
-                    <h2 class="game-section-title"><span class="emoji">💰</span> Stage Multipliers</h2>
+                    <h2 class="game-section-title"><span class="section-icon">&diams;</span> Stage Multipliers</h2>
                     <div class="outcomes-card">
                         <table class="outcomes-table">
                             <thead>
                                 <tr>
                                     <th>Stage</th>
-                                    <th>Multiplier on Completion</th>
+                                    <th>Multiplier</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 <tr>
-                                    <td>🟢 <strong>Stage 1</strong></td>
+                                    <td>Stage 1 Cleared</td>
                                     <td><span class="multiplier neutral">1.2x</span></td>
                                 </tr>
                                 <tr>
-                                    <td>🟡 <strong>Stage 2</strong></td>
-                                    <td><span class="multiplier win">1.5x</span></td>
+                                    <td>Stage 2 Cleared</td>
+                                    <td><span class="multiplier win">1.8x</span></td>
                                 </tr>
                                 <tr>
-                                    <td>🔴 <strong>Stage 3</strong></td>
-                                    <td><span class="multiplier win">2x</span></td>
+                                    <td>Stage 3 Cleared</td>
+                                    <td><span class="multiplier win">3x</span></td>
                                 </tr>
                                 <tr>
-                                    <td>❌ <strong>All 3 balls lost</strong></td>
-                                    <td><span class="multiplier lose">0x — Lose All</span></td>
+                                    <td>Hit a Snake</td>
+                                    <td><span class="multiplier lose">0x &mdash; Lose All</span></td>
                                 </tr>
                             </tbody>
                         </table>
                     </div>
-                    <div class="note-box">
-                        <strong>💡 Tip:</strong> Once you complete a stage, you're locked in at that multiplier. Decide
-                        if you want the safe 1.2x or risk going for the 2x!
-                    </div>
+                    <div class="note-box"><strong>Tip:</strong> Each stage gets progressively riskier. Cashing out after
+                        Stage 2 gives a solid 1.8x return. Only the bravest should attempt Stage 3!</div>
                 </div>
             </div>
-
-            <div class="back-cta fade-in"><a href="../index.html#games" class="cta-btn">🎮 Back to All Games</a></div>
+            <div class="back-cta fade-in"><a href="../index.html#games" class="back-cta-btn">&larr; Back to All
+                    Games</a></div>
         </div>
     </div>
 
@@ -97,7 +94,8 @@
         <div class="container">
             <div class="footer-brand"><img src="../Dream Merchants Logo.jpeg" alt="Dream Merchants"><span>Dream
                     Merchants</span></div>
-            <p class="footer-text">CASHINO 3.0 — The Ultimate Token Tournament © 2026</p>
+            <div class="footer-suits">&spades; &hearts; &diams; &clubs;</div>
+            <p class="footer-text">CASHINO 3.0 &mdash; The Ultimate Token Tournament &copy; 2026</p>
         </div>
     </footer>
     <script src="../js/main.js"></script>

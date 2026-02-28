@@ -13,7 +13,6 @@
 
 <body>
 
-  <!-- Particle Background -->
   <canvas id="particle-canvas"></canvas>
 
   <!-- Navigation -->
@@ -27,13 +26,11 @@
         <a href="#about">About</a>
         <a href="#rules">Rules</a>
         <a href="#games">Games</a>
-        <a href="https://riviera.vit.ac.in/events/evt_053db06c49a24101bc7503e3b7c8d41b" class="cta-btn"
-          style="padding:10px 24px;font-size:0.85rem;">Register ₹200</a>
+        <a href="https://riviera.vit.ac.in/events/evt_053db06c49a24101bc7503e3b7c8d41b" class="nav-cta">Register
+          &#8377;200</a>
       </div>
       <div class="hamburger">
-        <span></span>
-        <span></span>
-        <span></span>
+        <span></span><span></span><span></span>
       </div>
     </div>
   </nav>
@@ -41,13 +38,20 @@
   <!-- Hero Section -->
   <section class="hero">
     <div class="hero-content">
+      <span class="hero-deco hero-deco-tl">&spades;</span>
+      <span class="hero-deco hero-deco-br">&hearts;</span>
+
       <img src="cashino-3-0.jpg" alt="CASHINO 3.0" class="hero-logo">
-      <p class="hero-tagline">PRESENTED BY DREAM MERCHANTS</p>
-      <h1 class="hero-title">The Ultimate Token Tournament</h1>
+      <p class="hero-tagline">Presented by Dream Merchants</p>
+      <h1 class="hero-title">CASHINO 3.0</h1>
       <p class="hero-desc">A high-stakes strategy battle where everyone starts equal. Play smart across 13 thrilling
-        games, outsmart your opponents, and walk away with the most tokens to win big!</p>
-      <a href="https://riviera.vit.ac.in/events/evt_053db06c49a24101bc7503e3b7c8d41b" class="cta-btn">🎟️ Register Now —
-        ₹200</a>
+        games, outsmart your opponents, and walk away with the most tokens to claim victory.</p>
+      <div class="hero-suits">
+        <span>&spades;</span>
+        <span>&hearts;</span>
+        <span>&diams;</span>
+        <span>&clubs;</span>
+      </div>
     </div>
   </section>
 
@@ -56,19 +60,36 @@
     <div class="container">
       <div class="event-bar-grid">
         <div class="event-bar-item fade-in">
-          <span class="event-bar-icon">📍</span>
+          <span class="event-bar-icon">
+            <svg class="icon icon-lg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" />
+              <circle cx="12" cy="10" r="3" />
+            </svg>
+          </span>
           <span class="event-bar-label">Venue</span>
           <span class="event-bar-value">Era Sezhiyan Auditorium</span>
         </div>
-        <div class="event-bar-item fade-in">
-          <span class="event-bar-icon">📅</span>
+        <div class="event-bar-item fade-in" data-delay="100">
+          <span class="event-bar-icon">
+            <svg class="icon icon-lg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <rect x="3" y="4" width="18" height="18" rx="2" />
+              <line x1="16" y1="2" x2="16" y2="6" />
+              <line x1="8" y1="2" x2="8" y2="6" />
+              <line x1="3" y1="10" x2="21" y2="10" />
+            </svg>
+          </span>
           <span class="event-bar-label">Date</span>
           <span class="event-bar-value">01 March 2026</span>
         </div>
-        <div class="event-bar-item fade-in">
-          <span class="event-bar-icon">⏰</span>
+        <div class="event-bar-item fade-in" data-delay="200">
+          <span class="event-bar-icon">
+            <svg class="icon icon-lg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <circle cx="12" cy="12" r="10" />
+              <polyline points="12 6 12 12 16 14" />
+            </svg>
+          </span>
           <span class="event-bar-label">Timings</span>
-          <span class="event-bar-value">10:00 AM — 1:00 PM</span>
+          <span class="event-bar-value">10:00 AM &mdash; 1:00 PM</span>
         </div>
       </div>
     </div>
@@ -81,46 +102,47 @@
       <p class="section-subtitle fade-in">Where strategy meets fortune</p>
       <div class="about-card fade-in">
         <p class="about-text">
-          <strong>CASHINO 3.0</strong> is not your average college fest game — it's an electrifying token-based
+          <strong>CASHINO 3.0</strong> is not your average college fest game &mdash; it's an electrifying token-based
           tournament where every participant starts on equal footing with <strong>150 tokens</strong>. Navigate through
           <strong>13 unique games</strong>, each designed to test your wits, luck, and strategic thinking. From the
           calculated risk of <strong>Minefield</strong> to the high-stakes bluffs of <strong>Liar Dice</strong>, every
-          game is a chance to multiply your fortune — or lose it all.
+          game is a chance to multiply your fortune &mdash; or lose it all.
         </p>
         <p class="about-text" style="margin-top: 16px;">
-          The goal is simple: <strong>finish with the maximum number of tokens</strong>. There are no shortcuts — just
-          smart play, sharp decisions, and a bit of luck. Will you play it safe or go all in?
+          The goal is simple: <strong>finish with the maximum number of tokens</strong>. There are no shortcuts &mdash;
+          just smart play, sharp decisions, and a bit of luck. Will you play it safe or go all in?
         </p>
         <div class="about-highlight">
-          <span class="about-badge">🪙 150 Starting Tokens</span>
-          <span class="about-badge">🎮 13 Games</span>
-          <span class="about-badge">🏆 Most Tokens Wins</span>
-          <span class="about-badge">💰 1 Unit = 1 Token</span>
+          <span class="about-badge"><span style="color:var(--crimson)">&diams;</span> 150 Starting Tokens</span>
+          <span class="about-badge"><span style="color:var(--crimson)">&spades;</span> 13 Games</span>
+          <span class="about-badge"><span style="color:var(--crimson)">&hearts;</span> Most Tokens Wins</span>
+          <span class="about-badge"><span style="color:var(--crimson)">&clubs;</span> 1 Unit = 1 Token</span>
         </div>
       </div>
     </div>
   </section>
 
-  <hr class="neon-divider">
+  <hr class="gold-divider">
 
   <!-- Rules Section -->
   <section id="rules" class="rules-section">
     <div class="container">
-      <h2 class="section-title fade-in">📜 General Guidelines & Rules</h2>
+      <h2 class="section-title fade-in">General Guidelines &amp; Rules</h2>
       <p class="section-subtitle fade-in">Read carefully before stepping into the arena</p>
 
       <div class="accordion fade-in">
         <div class="accordion-item active">
           <div class="accordion-header">
-            <span>🪙 Token System</span>
-            <span class="accordion-icon">+</span>
+            <span class="accordion-header-left"><span class="suit suit-diamond" style="color:var(--gold)"></span> Token
+              System</span>
+            <span class="accordion-icon"></span>
           </div>
           <div class="accordion-body">
             <div class="accordion-body-inner">
               <ul>
                 <li>All players will receive <strong>150 tokens</strong> each to start with.</li>
                 <li>Price: <strong>1 unit = 1 token</strong>.</li>
-                <li>Registration Fee: <strong>₹200</strong> (inclusive of GST).</li>
+                <li>Registration Fee: <strong>&#8377;200</strong> (inclusive of GST).</li>
               </ul>
             </div>
           </div>
@@ -128,8 +150,9 @@
 
         <div class="accordion-item">
           <div class="accordion-header">
-            <span>📏 Game Rules</span>
-            <span class="accordion-icon">+</span>
+            <span class="accordion-header-left"><span class="suit suit-spade" style="color:var(--gold)"></span> Game
+              Rules</span>
+            <span class="accordion-icon"></span>
           </div>
           <div class="accordion-body">
             <div class="accordion-body-inner">
@@ -137,8 +160,8 @@
                 <li>In every game, the <strong>bold lines</strong> state the winning/losing criteria with their
                   multiplier.</li>
                 <li>Once tokens used are <strong>non-refundable</strong> for each and every game.</li>
-                <li>Each game has its own set of specific rules and multipliers — check the individual game pages for
-                  details.</li>
+                <li>Each game has its own set of specific rules and multipliers &mdash; check the individual game pages
+                  for details.</li>
               </ul>
             </div>
           </div>
@@ -146,8 +169,9 @@
 
         <div class="accordion-item">
           <div class="accordion-header">
-            <span>⚖️ Fair Play & Disputes</span>
-            <span class="accordion-icon">+</span>
+            <span class="accordion-header-left"><span class="suit suit-heart" style="color:var(--crimson)"></span> Fair
+              Play &amp; Disputes</span>
+            <span class="accordion-icon"></span>
           </div>
           <div class="accordion-body">
             <div class="accordion-body-inner">
@@ -164,8 +188,9 @@
 
         <div class="accordion-item">
           <div class="accordion-header">
-            <span>🏆 Judgement Criteria</span>
-            <span class="accordion-icon">+</span>
+            <span class="accordion-header-left"><span class="suit suit-club" style="color:var(--gold)"></span> Judgement
+              Criteria</span>
+            <span class="accordion-icon"></span>
           </div>
           <div class="accordion-body">
             <div class="accordion-body-inner">
@@ -181,107 +206,105 @@
     </div>
   </section>
 
-  <hr class="neon-divider">
+  <hr class="gold-divider">
 
   <!-- Games Section -->
   <section id="games" class="games-section">
     <div class="container">
-      <h2 class="section-title fade-in">🎮 The Games Arena</h2>
+      <h2 class="section-title fade-in">The Games Arena</h2>
       <p class="section-subtitle fade-in">13 games. Infinite strategies. Choose wisely.</p>
 
       <div class="games-grid">
-
-        <a href="pages/minefield.html" class="game-card fade-in">
-          <span class="game-card-icon">💣</span>
+        <a href="pages/minefield.html" class="game-card fade-in" data-delay="0">
+          <span class="game-card-icon">&diams;</span>
           <span class="game-card-name">Minefield</span>
           <span class="game-card-price">10 Tokens</span>
-          <span class="game-card-arrow">→</span>
+          <span class="game-card-arrow">&rarr;</span>
         </a>
 
-        <a href="pages/colour-wheel.html" class="game-card fade-in">
-          <span class="game-card-icon">🎡</span>
+        <a href="pages/colour-wheel.html" class="game-card fade-in" data-delay="60">
+          <span class="game-card-icon">&hearts;</span>
           <span class="game-card-name">Colour Wheel of Fortune</span>
-          <span class="game-card-price">10–40 Tokens</span>
-          <span class="game-card-arrow">→</span>
+          <span class="game-card-price">10&ndash;40 Tokens</span>
+          <span class="game-card-arrow">&rarr;</span>
         </a>
 
-        <a href="pages/liar-dice.html" class="game-card fade-in">
-          <span class="game-card-icon">🎲</span>
+        <a href="pages/liar-dice.html" class="game-card fade-in" data-delay="120">
+          <span class="game-card-icon">&spades;</span>
           <span class="game-card-name">Liar Dice</span>
           <span class="game-card-price">6+ Tokens</span>
-          <span class="game-card-arrow">→</span>
+          <span class="game-card-arrow">&rarr;</span>
         </a>
 
-        <a href="pages/tiletango.html" class="game-card fade-in">
-          <span class="game-card-icon">🧩</span>
+        <a href="pages/tiletango.html" class="game-card fade-in" data-delay="180">
+          <span class="game-card-icon">&clubs;</span>
           <span class="game-card-name">TileTango</span>
           <span class="game-card-price">10 Tokens</span>
-          <span class="game-card-arrow">→</span>
+          <span class="game-card-arrow">&rarr;</span>
         </a>
 
-        <a href="pages/luck-exchange.html" class="game-card fade-in">
-          <span class="game-card-icon">✉️</span>
+        <a href="pages/luck-exchange.html" class="game-card fade-in" data-delay="0">
+          <span class="game-card-icon">&diams;</span>
           <span class="game-card-name">LuckExchange</span>
           <span class="game-card-price">10 Tokens</span>
-          <span class="game-card-arrow">→</span>
+          <span class="game-card-arrow">&rarr;</span>
         </a>
 
-        <a href="pages/7-up-down.html" class="game-card fade-in">
-          <span class="game-card-icon">🎯</span>
-          <span class="game-card-name">7 Up & Down</span>
-          <span class="game-card-price">1–60 Tokens</span>
-          <span class="game-card-arrow">→</span>
+        <a href="pages/7-up-down.html" class="game-card fade-in" data-delay="60">
+          <span class="game-card-icon">&hearts;</span>
+          <span class="game-card-name">7 Up &amp; Down</span>
+          <span class="game-card-price">1&ndash;60 Tokens</span>
+          <span class="game-card-arrow">&rarr;</span>
         </a>
 
-        <a href="pages/plinko.html" class="game-card fade-in">
-          <span class="game-card-icon">📌</span>
+        <a href="pages/plinko.html" class="game-card fade-in" data-delay="120">
+          <span class="game-card-icon">&spades;</span>
           <span class="game-card-name">Plinko</span>
-          <span class="game-card-price">4–6 Tokens</span>
-          <span class="game-card-arrow">→</span>
+          <span class="game-card-price">4&ndash;6 Tokens</span>
+          <span class="game-card-arrow">&rarr;</span>
         </a>
 
-        <a href="pages/tangram.html" class="game-card fade-in">
-          <span class="game-card-icon">🔷</span>
+        <a href="pages/tangram.html" class="game-card fade-in" data-delay="180">
+          <span class="game-card-icon">&clubs;</span>
           <span class="game-card-name">Tangram</span>
           <span class="game-card-price">10 Tokens</span>
-          <span class="game-card-arrow">→</span>
+          <span class="game-card-arrow">&rarr;</span>
         </a>
 
-        <a href="pages/board-basketball.html" class="game-card fade-in">
-          <span class="game-card-icon">🏀</span>
+        <a href="pages/board-basketball.html" class="game-card fade-in" data-delay="0">
+          <span class="game-card-icon">&diams;</span>
           <span class="game-card-name">Board Basketball</span>
           <span class="game-card-price">10 Tokens</span>
-          <span class="game-card-arrow">→</span>
+          <span class="game-card-arrow">&rarr;</span>
         </a>
 
-        <a href="pages/snake-pit.html" class="game-card fade-in">
-          <span class="game-card-icon">🐍</span>
+        <a href="pages/snake-pit.html" class="game-card fade-in" data-delay="60">
+          <span class="game-card-icon">&hearts;</span>
           <span class="game-card-name">Snake Pit</span>
           <span class="game-card-price">10 Tokens</span>
-          <span class="game-card-arrow">→</span>
+          <span class="game-card-arrow">&rarr;</span>
         </a>
 
-        <a href="pages/dicejack.html" class="game-card fade-in">
-          <span class="game-card-icon">🃏</span>
+        <a href="pages/dicejack.html" class="game-card fade-in" data-delay="120">
+          <span class="game-card-icon">&spades;</span>
           <span class="game-card-name">Dicejack</span>
-          <span class="game-card-price">10–40 Tokens</span>
-          <span class="game-card-arrow">→</span>
+          <span class="game-card-price">10&ndash;40 Tokens</span>
+          <span class="game-card-arrow">&rarr;</span>
         </a>
 
-        <a href="pages/order-can-guessing.html" class="game-card fade-in">
-          <span class="game-card-icon">🥫</span>
+        <a href="pages/order-can-guessing.html" class="game-card fade-in" data-delay="180">
+          <span class="game-card-icon">&clubs;</span>
           <span class="game-card-name">Order Can Guessing</span>
           <span class="game-card-price">10 Tokens</span>
-          <span class="game-card-arrow">→</span>
+          <span class="game-card-arrow">&rarr;</span>
         </a>
 
-        <a href="pages/luck-ladder.html" class="game-card fade-in">
-          <span class="game-card-icon">🪜</span>
+        <a href="pages/luck-ladder.html" class="game-card fade-in" data-delay="0">
+          <span class="game-card-icon">&diams;</span>
           <span class="game-card-name">Luck Ladder</span>
           <span class="game-card-price">10 Tokens</span>
-          <span class="game-card-arrow">→</span>
+          <span class="game-card-arrow">&rarr;</span>
         </a>
-
       </div>
     </div>
   </section>
@@ -293,7 +316,8 @@
         <img src="Dream Merchants Logo.jpeg" alt="Dream Merchants">
         <span>Dream Merchants</span>
       </div>
-      <p class="footer-text">CASHINO 3.0 — The Ultimate Token Tournament © 2026</p>
+      <div class="footer-suits">&spades; &hearts; &diams; &clubs;</div>
+      <p class="footer-text">CASHINO 3.0 &mdash; The Ultimate Token Tournament &copy; 2026</p>
     </div>
   </footer>
 

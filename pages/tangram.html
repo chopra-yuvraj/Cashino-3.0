@@ -4,8 +4,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tangram — CASHINO 3.0</title>
-    <meta name="description" content="Tangram: Solve the pattern puzzle in 30 seconds using all 7 pieces to win 1.5x!">
+    <title>Tangram &mdash; CASHINO 3.0</title>
+    <meta name="description" content="Tangram: Solve the puzzle within the time limit to double your tokens!">
     <link rel="stylesheet" href="../css/style.css">
     <link rel="icon" href="../cashino-3-0.jpg" type="image/jpeg">
 </head>
@@ -13,72 +13,70 @@
 <body>
     <canvas id="particle-canvas"></canvas>
     <nav class="navbar">
-        <div class="container nav-inner">
-            <a href="../index.html" class="nav-brand"><img src="../Dream Merchants Logo.jpeg"
-                    alt="Dream Merchants"><span>CASHINO 3.0</span></a>
+        <div class="container nav-inner"><a href="../index.html" class="nav-brand"><img
+                    src="../Dream Merchants Logo.jpeg" alt="Dream Merchants"><span>CASHINO 3.0</span></a>
             <div class="nav-links"><a href="../index.html#about">About</a><a href="../index.html#rules">Rules</a><a
-                    href="../index.html#games">Games</a></div>
+                    href="../index.html#games">Games</a><a
+                    href="https://riviera.vit.ac.in/events/evt_053db06c49a24101bc7503e3b7c8d41b"
+                    class="nav-cta">Register &#8377;200</a></div>
             <div class="hamburger"><span></span><span></span><span></span></div>
         </div>
     </nav>
 
     <div class="game-page">
         <div class="container">
-            <div class="back-nav"><a href="../index.html#games" class="back-link">← Back to All Games</a></div>
-
-            <div class="game-header fade-in">
-                <span class="game-header-icon">🔷</span>
+            <div class="back-nav"><a href="../index.html#games" class="back-link"><svg width="16" height="16"
+                        viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <polyline points="15 18 9 12 15 6" />
+                    </svg> Back to All Games</a></div>
+            <div class="game-header fade-in"><span class="game-header-icon">&clubs;</span>
                 <h1>Tangram</h1>
                 <div class="game-header-line"></div>
             </div>
-
             <div class="quick-stats fade-in">
-                <span class="stat-badge price"><span class="stat-icon">🪙</span> 10 Tokens</span>
-                <span class="stat-badge manager"><span class="stat-icon">👤</span> Manager: Akshat</span>
+                <span class="stat-badge price"><span class="stat-icon">&diams;</span> 10 Tokens</span>
+                <span class="stat-badge manager"><span class="stat-icon">&spades;</span> Manager: Anmol</span>
             </div>
-
             <div class="game-content">
                 <div class="game-section fade-in">
-                    <h2 class="game-section-title"><span class="emoji">📖</span> How to Play</h2>
+                    <h2 class="game-section-title"><span class="section-icon">&spades;</span> How to Play</h2>
                     <ul class="rules-list">
-                        <li>You will be given <strong>7 tangram pieces</strong>.</li>
-                        <li>The house gives you a <strong>random pattern</strong> to recreate.</li>
-                        <li>You must use <strong>all 7 pieces</strong> to make the given pattern.</li>
-                        <li>You have <strong>30 seconds</strong> to solve the puzzle.</li>
-                        <li>Pattern sheets with solutions are provided to the game manager.</li>
+                        <li><strong>Individual player</strong> game.</li>
+                        <li>The player is given <strong>7 Tangram pieces</strong> (tans).</li>
+                        <li>A <strong>target pattern</strong> is shown &mdash; you must recreate it using all 7 pieces.
+                        </li>
+                        <li>Time limit: <strong>3 minutes</strong>.</li>
+                        <li>All pieces must be used; <strong>no overlapping</strong> allowed.</li>
                     </ul>
                 </div>
-
                 <div class="game-section fade-in">
-                    <h2 class="game-section-title"><span class="emoji">💰</span> Winning / Losing</h2>
+                    <h2 class="game-section-title"><span class="section-icon">&diams;</span> Outcomes</h2>
                     <div class="outcomes-card">
                         <table class="outcomes-table">
                             <thead>
                                 <tr>
-                                    <th>Outcome</th>
+                                    <th>Result</th>
                                     <th>Multiplier</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 <tr>
-                                    <td>✅ <strong>Solved correctly</strong> within 30 seconds</td>
-                                    <td><span class="multiplier win">1.5x</span></td>
+                                    <td>Solved within 3 minutes</td>
+                                    <td><span class="multiplier win">2x</span></td>
                                 </tr>
                                 <tr>
-                                    <td>❌ <strong>Failed</strong> to solve in time</td>
-                                    <td><span class="multiplier lose">0x — Lose Tokens</span></td>
+                                    <td>Not solved / Time expired</td>
+                                    <td><span class="multiplier lose">0x &mdash; Lose Bet</span></td>
                                 </tr>
                             </tbody>
                         </table>
                     </div>
-                    <div class="note-box">
-                        <strong>💡 Tip:</strong> Start with the largest pieces first. The big triangle and parallelogram
-                        usually dictate the overall shape!
-                    </div>
+                    <div class="note-box"><strong>Tip:</strong> Start with the large triangles first to define the
+                        overall shape, then fit in the smaller pieces. Practice spatial reasoning!</div>
                 </div>
             </div>
-
-            <div class="back-cta fade-in"><a href="../index.html#games" class="cta-btn">🎮 Back to All Games</a></div>
+            <div class="back-cta fade-in"><a href="../index.html#games" class="back-cta-btn">&larr; Back to All
+                    Games</a></div>
         </div>
     </div>
 
@@ -86,7 +84,8 @@
         <div class="container">
             <div class="footer-brand"><img src="../Dream Merchants Logo.jpeg" alt="Dream Merchants"><span>Dream
                     Merchants</span></div>
-            <p class="footer-text">CASHINO 3.0 — The Ultimate Token Tournament © 2026</p>
+            <div class="footer-suits">&spades; &hearts; &diams; &clubs;</div>
+            <p class="footer-text">CASHINO 3.0 &mdash; The Ultimate Token Tournament &copy; 2026</p>
         </div>
     </footer>
     <script src="../js/main.js"></script>

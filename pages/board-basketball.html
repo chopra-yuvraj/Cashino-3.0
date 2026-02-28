@@ -4,8 +4,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Board Basketball — CASHINO 3.0</title>
-    <meta name="description" content="Board Basketball: Score baskets on the board to win up to 2x your tokens!">
+    <title>Board Basketball &mdash; CASHINO 3.0</title>
+    <meta name="description" content="Board Basketball: Shoot hoops and win based on your accuracy!">
     <link rel="stylesheet" href="../css/style.css">
     <link rel="icon" href="../cashino-3-0.jpg" type="image/jpeg">
 </head>
@@ -13,42 +13,43 @@
 <body>
     <canvas id="particle-canvas"></canvas>
     <nav class="navbar">
-        <div class="container nav-inner">
-            <a href="../index.html" class="nav-brand"><img src="../Dream Merchants Logo.jpeg"
-                    alt="Dream Merchants"><span>CASHINO 3.0</span></a>
+        <div class="container nav-inner"><a href="../index.html" class="nav-brand"><img
+                    src="../Dream Merchants Logo.jpeg" alt="Dream Merchants"><span>CASHINO 3.0</span></a>
             <div class="nav-links"><a href="../index.html#about">About</a><a href="../index.html#rules">Rules</a><a
-                    href="../index.html#games">Games</a></div>
+                    href="../index.html#games">Games</a><a
+                    href="https://riviera.vit.ac.in/events/evt_053db06c49a24101bc7503e3b7c8d41b"
+                    class="nav-cta">Register &#8377;200</a></div>
             <div class="hamburger"><span></span><span></span><span></span></div>
         </div>
     </nav>
 
     <div class="game-page">
         <div class="container">
-            <div class="back-nav"><a href="../index.html#games" class="back-link">← Back to All Games</a></div>
-
-            <div class="game-header fade-in">
-                <span class="game-header-icon">🏀</span>
+            <div class="back-nav"><a href="../index.html#games" class="back-link"><svg width="16" height="16"
+                        viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <polyline points="15 18 9 12 15 6" />
+                    </svg> Back to All Games</a></div>
+            <div class="game-header fade-in"><span class="game-header-icon">&diams;</span>
                 <h1>Board Basketball</h1>
                 <div class="game-header-line"></div>
             </div>
-
             <div class="quick-stats fade-in">
-                <span class="stat-badge price"><span class="stat-icon">🪙</span> 10 Tokens</span>
-                <span class="stat-badge manager"><span class="stat-icon">👤</span> Manager: Mehul</span>
+                <span class="stat-badge price"><span class="stat-icon">&diams;</span> 10 Tokens</span>
+                <span class="stat-badge manager"><span class="stat-icon">&spades;</span> Manager: Shreyas</span>
             </div>
-
             <div class="game-content">
                 <div class="game-section fade-in">
-                    <h2 class="game-section-title"><span class="emoji">📖</span> How to Play</h2>
+                    <h2 class="game-section-title"><span class="section-icon">&spades;</span> How to Play</h2>
                     <ul class="rules-list">
-                        <li>Each player gets <strong>3 chances</strong> to score baskets placed on the board.</li>
-                        <li>Your reward is based on <strong>how many baskets you score</strong> out of 3.</li>
-                        <li>Aim carefully — each basket counts!</li>
+                        <li><strong>Individual player</strong> game.</li>
+                        <li>The player gets <strong>3 chances</strong> to score baskets.</li>
+                        <li>Each successful shot earns points toward a higher multiplier.</li>
+                        <li>Score is based on <strong>total baskets made</strong> out of 3 attempts.</li>
                     </ul>
                 </div>
-
                 <div class="game-section fade-in">
-                    <h2 class="game-section-title"><span class="emoji">💰</span> Scoring & Multipliers</h2>
+                    <h2 class="game-section-title"><span class="section-icon">&diams;</span> Outcomes &amp; Multipliers
+                    </h2>
                     <div class="outcomes-card">
                         <table class="outcomes-table">
                             <thead>
@@ -59,32 +60,30 @@
                             </thead>
                             <tbody>
                                 <tr>
-                                    <td>🏀🏀🏀 <strong>3 Baskets</strong> — Perfect!</td>
+                                    <td>3 out of 3</td>
+                                    <td><span class="multiplier win">3x</span></td>
+                                </tr>
+                                <tr>
+                                    <td>2 out of 3</td>
                                     <td><span class="multiplier win">2x</span></td>
                                 </tr>
                                 <tr>
-                                    <td>🏀🏀 <strong>2 Baskets</strong></td>
-                                    <td><span class="multiplier win">1.5x</span></td>
+                                    <td>1 out of 3</td>
+                                    <td><span class="multiplier neutral">1x (Tokens Returned)</span></td>
                                 </tr>
                                 <tr>
-                                    <td>🏀 <strong>1 Basket</strong></td>
-                                    <td><span class="multiplier neutral">1x</span></td>
-                                </tr>
-                                <tr>
-                                    <td>❌ <strong>0 Baskets</strong></td>
-                                    <td><span class="multiplier lose">0x — Lose All</span></td>
+                                    <td>0 out of 3</td>
+                                    <td><span class="multiplier lose">0x &mdash; Lose All</span></td>
                                 </tr>
                             </tbody>
                         </table>
                     </div>
-                    <div class="note-box">
-                        <strong>💡 Tip:</strong> Even 1 basket gets you your tokens back (1x). Go for accuracy over
-                        power!
-                    </div>
+                    <div class="note-box"><strong>Tip:</strong> Aim with consistency. Scoring at least 1 basket
+                        guarantees you keep your tokens. Going for all 3 gives you a massive 3x return!</div>
                 </div>
             </div>
-
-            <div class="back-cta fade-in"><a href="../index.html#games" class="cta-btn">🎮 Back to All Games</a></div>
+            <div class="back-cta fade-in"><a href="../index.html#games" class="back-cta-btn">&larr; Back to All
+                    Games</a></div>
         </div>
     </div>
 
@@ -92,7 +91,8 @@
         <div class="container">
             <div class="footer-brand"><img src="../Dream Merchants Logo.jpeg" alt="Dream Merchants"><span>Dream
                     Merchants</span></div>
-            <p class="footer-text">CASHINO 3.0 — The Ultimate Token Tournament © 2026</p>
+            <div class="footer-suits">&spades; &hearts; &diams; &clubs;</div>
+            <p class="footer-text">CASHINO 3.0 &mdash; The Ultimate Token Tournament &copy; 2026</p>
         </div>
     </footer>
     <script src="../js/main.js"></script>

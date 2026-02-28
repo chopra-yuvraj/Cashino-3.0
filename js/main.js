@@ -1,13 +1,15 @@
 /* ============================================
-   CASHINO 3.0 — Main JavaScript
-   Navigation, Accordion, Particles, Animations
+   CASHINO 3.0 — Premium Casino JavaScript
+   Golden Embers · 3D Tilt · Hero Reveal
    ============================================ */
 
 document.addEventListener('DOMContentLoaded', () => {
   initNavbar();
   initAccordion();
   initFadeIn();
-  initParticles();
+  initGoldenEmbers();
+  initCardTilt();
+  initHeroReveal();
 });
 
 /* ---------- Sticky Navbar + Hamburger ---------- */
@@ -18,8 +20,8 @@ function initNavbar() {
 
   if (navbar) {
     window.addEventListener('scroll', () => {
-      navbar.classList.toggle('scrolled', window.scrollY > 60);
-    });
+      navbar.classList.toggle('scrolled', window.scrollY > 50);
+    }, { passive: true });
   }
 
   if (hamburger && navLinks) {
@@ -28,7 +30,6 @@ function initNavbar() {
       navLinks.classList.toggle('open');
     });
 
-    // Close on link click
     navLinks.querySelectorAll('a').forEach(link => {
       link.addEventListener('click', () => {
         hamburger.classList.remove('active');
@@ -46,37 +47,95 @@ function initAccordion() {
       const item = header.parentElement;
       const isOpen = item.classList.contains('active');
 
-      // Close all
       document.querySelectorAll('.accordion-item').forEach(i => i.classList.remove('active'));
 
-      // Toggle current
       if (!isOpen) item.classList.add('active');
     });
   });
 }
 
-/* ---------- Fade-in on Scroll ---------- */
+/* ---------- Staggered Fade-in on Scroll ---------- */
 function initFadeIn() {
   const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
-        entry.target.classList.add('visible');
+        const delay = entry.target.dataset.delay || 0;
+        setTimeout(() => {
+          entry.target.classList.add('visible');
+        }, parseInt(delay));
         observer.unobserve(entry.target);
       }
     });
-  }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+  }, { threshold: 0.08, rootMargin: '0px 0px -30px 0px' });
 
   document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
 }
 
-/* ---------- Particle Background ---------- */
-function initParticles() {
+/* ---------- Hero Typographic Reveal ---------- */
+function initHeroReveal() {
+  const heroTitle = document.querySelector('.hero-title');
+  if (!heroTitle || heroTitle.dataset.revealed) return;
+
+  heroTitle.dataset.revealed = 'true';
+  const text = heroTitle.textContent.trim();
+  heroTitle.innerHTML = '';
+
+  let charIndex = 0;
+  text.split('').forEach((char) => {
+    if (char === ' ') {
+      const space = document.createElement('span');
+      space.className = 'space';
+      space.innerHTML = '&nbsp;';
+      heroTitle.appendChild(space);
+    } else {
+      const span = document.createElement('span');
+      span.className = 'char';
+      span.textContent = char;
+      span.style.animationDelay = `${0.4 + charIndex * 0.06}s`;
+      heroTitle.appendChild(span);
+      charIndex++;
+    }
+  });
+}
+
+/* ---------- 3D Tilt on Game Cards ---------- */
+function initCardTilt() {
+  const cards = document.querySelectorAll('.game-card');
+
+  cards.forEach(card => {
+    card.addEventListener('mousemove', (e) => {
+      const rect = card.getBoundingClientRect();
+      const x = e.clientX - rect.left;
+      const y = e.clientY - rect.top;
+      const centerX = rect.width / 2;
+      const centerY = rect.height / 2;
+
+      const rotateX = ((y - centerY) / centerY) * -8;
+      const rotateY = ((x - centerX) / centerX) * 8;
+
+      card.style.transform = `perspective(800px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale(1.02)`;
+    });
+
+    card.addEventListener('mouseleave', () => {
+      card.style.transform = 'perspective(800px) rotateX(0) rotateY(0) scale(1)';
+      card.style.transition = 'transform 0.5s cubic-bezier(0.22, 1, 0.36, 1)';
+      setTimeout(() => { card.style.transition = ''; }, 500);
+    });
+
+    card.addEventListener('mouseenter', () => {
+      card.style.transition = 'none';
+    });
+  });
+}
+
+/* ---------- Golden Embers Canvas ---------- */
+function initGoldenEmbers() {
   const canvas = document.getElementById('particle-canvas');
   if (!canvas) return;
 
   const ctx = canvas.getContext('2d');
-  let particles = [];
-  const PARTICLE_COUNT = 60;
+  let embers = [];
+  const EMBER_COUNT = 45;
 
   function resize() {
     canvas.width = window.innerWidth;
@@ -85,64 +144,81 @@ function initParticles() {
   resize();
   window.addEventListener('resize', resize);
 
-  class Particle {
+  class Ember {
     constructor() {
-      this.reset();
+      this.reset(true);
     }
-    reset() {
+
+    reset(initial = false) {
       this.x = Math.random() * canvas.width;
-      this.y = Math.random() * canvas.height;
-      this.size = Math.random() * 2 + 0.5;
-      this.speedX = (Math.random() - 0.5) * 0.4;
-      this.speedY = (Math.random() - 0.5) * 0.4;
-      this.opacity = Math.random() * 0.4 + 0.1;
-      const colors = ['245,197,24', '0,255,136', '0,194,255', '168,85,247'];
-      this.color = colors[Math.floor(Math.random() * colors.length)];
+      this.y = initial ? Math.random() * canvas.height : canvas.height + 20;
+      this.size = Math.random() * 3 + 1;
+      this.speedY = -(Math.random() * 0.6 + 0.15);
+      this.speedX = (Math.random() - 0.5) * 0.25;
+      this.wobbleSpeed = Math.random() * 0.02 + 0.005;
+      this.wobbleAmp = Math.random() * 30 + 10;
+      this.wobbleOffset = Math.random() * Math.PI * 2;
+      this.life = 0;
+      this.maxLife = Math.random() * 600 + 300;
+      this.blur = Math.random() * 4 + 2;
+
+      // Gold tones
+      const golds = [
+        { r: 212, g: 168, b: 67 },  // --gold
+        { r: 232, g: 197, b: 104 }, // --gold-light
+        { r: 240, g: 214, b: 138 }, // --gold-bright
+        { r: 201, g: 36, b: 63 },   // --crimson (rare)
+      ];
+      const colorIdx = Math.random() < 0.88 ? Math.floor(Math.random() * 3) : 3;
+      this.color = golds[colorIdx];
     }
+
     update() {
-      this.x += this.speedX;
+      this.life++;
       this.y += this.speedY;
-      if (this.x < 0 || this.x > canvas.width || this.y < 0 || this.y > canvas.height) {
+      this.x += this.speedX + Math.sin(this.life * this.wobbleSpeed + this.wobbleOffset) * 0.3;
+
+      if (this.life > this.maxLife || this.y < -20) {
         this.reset();
       }
     }
+
     draw() {
+      const fadeIn = Math.min(this.life / 60, 1);
+      const fadeOut = Math.max(1 - (this.life / this.maxLife), 0);
+      const alpha = fadeIn * fadeOut * 0.6;
+
+      if (alpha <= 0) return;
+
+      const { r, g, b } = this.color;
+
+      // Outer glow (bokeh)
+      ctx.beginPath();
+      ctx.arc(this.x, this.y, this.size * this.blur, 0, Math.PI * 2);
+      ctx.fillStyle = `rgba(${r},${g},${b},${alpha * 0.08})`;
+      ctx.fill();
+
+      // Mid glow
+      ctx.beginPath();
+      ctx.arc(this.x, this.y, this.size * 2, 0, Math.PI * 2);
+      ctx.fillStyle = `rgba(${r},${g},${b},${alpha * 0.2})`;
+      ctx.fill();
+
+      // Core
       ctx.beginPath();
       ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
-      ctx.fillStyle = `rgba(${this.color},${this.opacity})`;
-      ctx.fill();
-      // Glow
-      ctx.beginPath();
-      ctx.arc(this.x, this.y, this.size * 3, 0, Math.PI * 2);
-      ctx.fillStyle = `rgba(${this.color},${this.opacity * 0.15})`;
+      ctx.fillStyle = `rgba(${r},${g},${b},${alpha * 0.7})`;
       ctx.fill();
     }
   }
 
-  for (let i = 0; i < PARTICLE_COUNT; i++) {
-    particles.push(new Particle());
+  for (let i = 0; i < EMBER_COUNT; i++) {
+    embers.push(new Ember());
   }
 
   function animate() {
     ctx.clearRect(0, 0, canvas.width, canvas.height);
-    particles.forEach(p => { p.update(); p.draw(); });
-
-    // Draw connections
-    for (let i = 0; i < particles.length; i++) {
-      for (let j = i + 1; j < particles.length; j++) {
-        const dx = particles[i].x - particles[j].x;
-        const dy = particles[i].y - particles[j].y;
-        const dist = Math.sqrt(dx * dx + dy * dy);
-        if (dist < 120) {
-          ctx.beginPath();
-          ctx.moveTo(particles[i].x, particles[i].y);
-          ctx.lineTo(particles[j].x, particles[j].y);
-          ctx.strokeStyle = `rgba(245,197,24,${0.06 * (1 - dist / 120)})`;
-          ctx.lineWidth = 0.5;
-          ctx.stroke();
-        }
-      }
-    }
+    embers.forEach(e => { e.update(); e.draw(); });
     requestAnimationFrame(animate);
   }
   animate();
