@@ -1,7 +1,11 @@
 /* ============================================
-   CASHINO 3.0 — Ultra-Premium JavaScript
-   Slot Machine · Golden Embers · Magnetic FX
+   CASHINO 3.0 - Ultra-Premium JavaScript
+   Slot Machine · Golden Embers · Mobile-First
    ============================================ */
+
+const isMobile = /Mobi|Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
+const isTouch = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
+const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
 document.addEventListener('DOMContentLoaded', () => {
   initNavbar();
@@ -19,21 +23,44 @@ function initNavbar() {
   const navLinks = document.querySelector('.nav-links');
 
   if (navbar) {
+    let ticking = false;
     window.addEventListener('scroll', () => {
-      navbar.classList.toggle('scrolled', window.scrollY > 40);
+      if (!ticking) {
+        requestAnimationFrame(() => {
+          navbar.classList.toggle('scrolled', window.scrollY > 40);
+          ticking = false;
+        });
+        ticking = true;
+      }
     }, { passive: true });
   }
 
   if (hamburger && navLinks) {
-    hamburger.addEventListener('click', () => {
+    hamburger.addEventListener('click', (e) => {
+      e.stopPropagation();
       hamburger.classList.toggle('active');
       navLinks.classList.toggle('open');
+      // Prevent background scroll when menu is open
+      document.body.style.overflow = navLinks.classList.contains('open') ? 'hidden' : '';
     });
+
     navLinks.querySelectorAll('a').forEach(link => {
       link.addEventListener('click', () => {
         hamburger.classList.remove('active');
         navLinks.classList.remove('open');
+        document.body.style.overflow = '';
       });
+    });
+
+    // Close menu on outside tap
+    document.addEventListener('click', (e) => {
+      if (navLinks.classList.contains('open') &&
+        !navLinks.contains(e.target) &&
+        !hamburger.contains(e.target)) {
+        hamburger.classList.remove('active');
+        navLinks.classList.remove('open');
+        document.body.style.overflow = '';
+      }
     });
   }
 }
@@ -56,7 +83,9 @@ function initReveal() {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
         const d = entry.target.dataset.delay || 0;
-        setTimeout(() => entry.target.classList.add('visible'), parseInt(d));
+        // On mobile, reduce stagger delays for snappier feel
+        const delay = isMobile ? Math.min(parseInt(d), 150) : parseInt(d);
+        setTimeout(() => entry.target.classList.add('visible'), delay);
         obs.unobserve(entry.target);
       }
     });
@@ -75,6 +104,9 @@ function initHeroReveal() {
   title.innerHTML = '';
   let idx = 0;
 
+  // On mobile, use slightly faster character delays
+  const charDelay = isMobile ? 0.05 : 0.07;
+
   text.split('').forEach(char => {
     if (char === ' ') {
       const sp = document.createElement('span');
@@ -85,7 +117,7 @@ function initHeroReveal() {
       const s = document.createElement('span');
       s.className = 'char';
       s.textContent = char;
-      s.style.animationDelay = `${0.3 + idx * 0.07}s`;
+      s.style.animationDelay = `${0.3 + idx * charDelay}s`;
       title.appendChild(s);
       idx++;
     }
@@ -115,12 +147,20 @@ function initSlotMachine() {
     { name: 'Luck Ladder', href: 'pages/luck-ladder.html' },
   ];
 
-  const ITEM_HEIGHT = 120;
+  // Responsive item height: match CSS slot-window height
+  function getItemHeight() {
+    const w = window.innerWidth;
+    if (w <= 480) return 80;
+    if (w <= 768) return 100;
+    return 120;
+  }
 
-  // Build reel: repeat games 6 times for long scrolling
+  // Build reel: fewer cycles on mobile for performance
+  const CYCLES = isMobile ? 4 : 6;
+
   function buildReel() {
     reel.innerHTML = '';
-    for (let cycle = 0; cycle < 6; cycle++) {
+    for (let cycle = 0; cycle < CYCLES; cycle++) {
       games.forEach(g => {
         const div = document.createElement('div');
         div.className = 'slot-item';
@@ -130,6 +170,13 @@ function initSlotMachine() {
     }
   }
   buildReel();
+
+  // Rebuild reel on resize to match new item heights
+  let resizeTimer;
+  window.addEventListener('resize', () => {
+    clearTimeout(resizeTimer);
+    resizeTimer = setTimeout(() => buildReel(), 200);
+  });
 
   let spinning = false;
 
@@ -144,51 +191,54 @@ function initSlotMachine() {
       result.innerHTML = '';
     }
 
-    // Pick random winner
+    const ITEM_HEIGHT = getItemHeight();
     const winIndex = Math.floor(Math.random() * games.length);
     const winner = games[winIndex];
 
-    // Target position: land on cycle 4 + winIndex
-    const targetIndex = (4 * games.length) + winIndex;
-    const targetOffset = -(targetIndex * ITEM_HEIGHT) + (0); // center in window
+    // Target: land on cycle (CYCLES - 2) + winIndex
+    const targetCycle = Math.max(CYCLES - 2, 2);
+    const targetIndex = (targetCycle * games.length) + winIndex;
+    const targetOffset = -(targetIndex * ITEM_HEIGHT);
+
+    // Shorter spin on mobile for performance
+    const spinDuration = isMobile ? 3 : 4;
+    const blurMax = isMobile ? '1px' : '2px';
 
     // Reset position
     reel.style.transition = 'none';
     reel.style.transform = 'translateY(0)';
+    reel.style.filter = 'blur(0)';
     reel.offsetHeight; // force reflow
 
-    // Animate with CSS
-    reel.style.transition = `transform 4s cubic-bezier(0.15, 0.85, 0.25, 1)`;
+    // Animate
+    reel.style.transition = `transform ${spinDuration}s cubic-bezier(0.15, 0.85, 0.25, 1)`;
     reel.style.transform = `translateY(${targetOffset}px)`;
 
-    // Apply blur during spin
-    reel.style.filter = 'blur(2px)';
-    setTimeout(() => {
-      reel.style.filter = 'blur(1px)';
-    }, 2500);
-    setTimeout(() => {
-      reel.style.filter = 'blur(0)';
-    }, 3600);
+    // Apply blur during spin (lighter on mobile)
+    if (!prefersReducedMotion) {
+      reel.style.filter = `blur(${blurMax})`;
+      setTimeout(() => { reel.style.filter = 'blur(0.5px)'; }, spinDuration * 625);
+      setTimeout(() => { reel.style.filter = 'blur(0)'; }, spinDuration * 900);
+    }
 
     // Highlight winner + show result
+    const revealTime = (spinDuration * 1000) + 200;
     setTimeout(() => {
       spinning = false;
       spinBtn.classList.remove('spinning');
       spinBtn.textContent = 'SPIN';
 
-      // Highlight active item
       document.querySelectorAll('.slot-item').forEach(item => item.classList.remove('active'));
       const allItems = reel.querySelectorAll('.slot-item');
       if (allItems[targetIndex]) {
         allItems[targetIndex].classList.add('active');
       }
 
-      // Show result link
       if (result) {
         result.innerHTML = `Play <a href="${winner.href}">${winner.name} &rarr;</a>`;
         setTimeout(() => result.classList.add('show'), 50);
       }
-    }, 4200);
+    }, revealTime);
   });
 }
 
@@ -196,40 +246,68 @@ function initSlotMachine() {
 function initGoldenEmbers() {
   const canvas = document.getElementById('particle-canvas');
   if (!canvas) return;
+
+  // Skip on extreme low-power / reduced motion
+  if (prefersReducedMotion) {
+    canvas.style.display = 'none';
+    return;
+  }
+
   const ctx = canvas.getContext('2d');
   let embers = [];
-  const COUNT = 35;
+
+  // Fewer particles on mobile for performance
+  const COUNT = isMobile ? 15 : 35;
+
+  let animId;
+  let isVisible = true;
 
   function resize() {
-    canvas.width = window.innerWidth;
-    canvas.height = window.innerHeight;
+    // Use devicePixelRatio for crisp rendering but cap at 2x for perf
+    const dpr = Math.min(window.devicePixelRatio || 1, 2);
+    canvas.width = window.innerWidth * dpr;
+    canvas.height = window.innerHeight * dpr;
+    canvas.style.width = window.innerWidth + 'px';
+    canvas.style.height = window.innerHeight + 'px';
+    ctx.scale(dpr, dpr);
   }
   resize();
-  window.addEventListener('resize', resize);
+
+  let resizeTimer;
+  window.addEventListener('resize', () => {
+    clearTimeout(resizeTimer);
+    resizeTimer = setTimeout(resize, 150);
+  });
+
+  // Pause canvas when tab not visible (save battery)
+  document.addEventListener('visibilitychange', () => {
+    isVisible = !document.hidden;
+    if (isVisible && !animId) animate();
+  });
 
   class Ember {
     constructor(init) {
       this.reset(init);
     }
     reset(init = false) {
-      this.x = Math.random() * canvas.width;
-      this.y = init ? Math.random() * canvas.height : canvas.height + 10;
+      const w = window.innerWidth;
+      const h = window.innerHeight;
+      this.x = Math.random() * w;
+      this.y = init ? Math.random() * h : h + 10;
       this.size = Math.random() * 2.5 + 0.8;
       this.vy = -(Math.random() * 0.5 + 0.1);
       this.vx = (Math.random() - 0.5) * 0.15;
       this.wobble = Math.random() * 0.015 + 0.003;
-      this.wobbleAmp = Math.random() * 20 + 8;
       this.wobbleOff = Math.random() * Math.PI * 2;
       this.life = 0;
       this.maxLife = Math.random() * 700 + 400;
-      this.blur = Math.random() * 3 + 2;
+      this.blur = isMobile ? Math.random() * 2 + 1.5 : Math.random() * 3 + 2;
       const golds = [
         { r: 201, g: 168, b: 76 },
         { r: 223, g: 192, b: 110 },
         { r: 240, g: 216, b: 142 },
       ];
-      const idx = Math.random() < 0.92 ? Math.floor(Math.random() * 3) : 0;
-      this.color = golds[idx];
+      this.color = golds[Math.floor(Math.random() * 3)];
     }
     update() {
       this.life++;
@@ -244,10 +322,13 @@ function initGoldenEmbers() {
       if (a <= 0) return;
       const { r, g, b } = this.color;
 
-      ctx.beginPath();
-      ctx.arc(this.x, this.y, this.size * this.blur, 0, Math.PI * 2);
-      ctx.fillStyle = `rgba(${r},${g},${b},${a * 0.06})`;
-      ctx.fill();
+      // On mobile, skip the outermost (largest) glow ring for perf
+      if (!isMobile) {
+        ctx.beginPath();
+        ctx.arc(this.x, this.y, this.size * this.blur, 0, Math.PI * 2);
+        ctx.fillStyle = `rgba(${r},${g},${b},${a * 0.06})`;
+        ctx.fill();
+      }
 
       ctx.beginPath();
       ctx.arc(this.x, this.y, this.size * 1.5, 0, Math.PI * 2);
@@ -263,9 +344,13 @@ function initGoldenEmbers() {
 
   for (let i = 0; i < COUNT; i++) embers.push(new Ember(true));
 
-  (function animate() {
-    ctx.clearRect(0, 0, canvas.width, canvas.height);
+  function animate() {
+    if (!isVisible) { animId = null; return; }
+    const w = window.innerWidth;
+    const h = window.innerHeight;
+    ctx.clearRect(0, 0, w, h);
     embers.forEach(e => { e.update(); e.draw(); });
-    requestAnimationFrame(animate);
-  })();
+    animId = requestAnimationFrame(animate);
+  }
+  animate();
 }
